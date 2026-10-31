@@ -183,16 +183,19 @@ function rng(seed){let s=seed>>>0||1;return()=>{s^=s<<13;s>>>=0;s^=s>>17;s^=s<<5
     $('#wmA').style.width=m?'25%':'85%';$('#wmB').style.width=m?'75%':'15%';$('#wmAv').textContent=m?'נמוך':'גבוה';$('#wmBv').textContent=m?'גבוה':'נמוך';});
 })();
 
-/* ───────── Color lab ───────── */
-(function(){const sw=$('#swatch');if(!sw)return;let hue=105;
-  function hsb2rgb(h,s,v){s/=100;v/=100;const f=n=>{const k=(n+h/60)%6;return v-v*s*Math.max(0,Math.min(k,4-k,1));};return[f(5),f(3),f(1)].map(x=>Math.round(x*255));}
-  function upd(){const B=+$('#rB').value,S=+$('#rS').value;$('#vB').textContent=B+'%';$('#vS').textContent=S+'%';
-    const [r,g,b]=hsb2rgb(hue,S,B);const hex='#'+[r,g,b].map(x=>x.toString(16).padStart(2,'0')).join('').toUpperCase();
-    sw.style.background=hex;$('#swhex').textContent=hex;
-    const a=-.31*(B-40)/57+.60*(S-5)/85;const pct=(a+.31)/(.91)*100;$('#arI').style.right=Math.max(0,Math.min(100,pct))+'%';}
-  $('#rB').addEventListener('input',upd);$('#rS').addEventListener('input',upd);
-  $('#hueseg').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;hue=+b.dataset.h;$$('#hueseg button').forEach(x=>x.classList.toggle('sel',x===b));upd();});
-  upd();})();
+/* ───────── Color lab: exact palette hexes from the spec ───────── */
+(function(){const sw=$('#swatch');if(!sw)return;
+  const P={A:['A · ירוק מרפא',[['רקע','#EEF3EC'],['משני','#C9DCC4'],['הדגשה','#8FB39A']]],
+           B:['B · כחול שקט',[['רקע','#EDF3F7'],['משני','#C5D8E6'],['הדגשה','#7FA3BF']]],
+           C:['C · טורקיז-ירקרק',[['רקע','#EEF5F4'],['משני','#BFDDD8'],['הדגשה','#7EB5AE']]]};
+  const CMP=['להשוואה · כתום הגירויים מהאפיון','#C97B3A'];
+  function hsb(hex){const n=parseInt(hex.slice(1),16),r=(n>>16&255)/255,g=(n>>8&255)/255,b=(n&255)/255;const mx=Math.max(r,g,b),mn=Math.min(r,g,b);return[mx?(mx-mn)/mx:0,mx];}
+  function row(name,hex,cmp){const [S,B]=hsb(hex);const a=-.31*B+.60*S;const pct=Math.max(0,Math.min(100,(a+.31)/.91*100));
+    return '<div class="crow'+(cmp?' cmp':'')+'"><i style="background:'+hex+'"></i><span class="nm">'+name+'</span><b class="ltr">'+hex+'</b><span class="hs ltr">S '+Math.round(S*100)+'% · B '+Math.round(B*100)+'%</span><span class="bar"><u style="right:'+pct.toFixed(1)+'%"></u></span></div>';}
+  function set(p){const [nm,cs]=P[p];$('#swname').textContent=nm;sw.style.background='linear-gradient(135deg,'+cs.map(c=>c[1]).join(',')+')';
+    $('#crows').innerHTML='<div class="crow hd"><span></span><span>תפקיד</span><span>קוד</span><span>רוויות · בהירות</span><span>עוררות: נמוכה ← גבוהה</span></div>'+cs.map(c=>row(c[0],c[1])).join('')+row(CMP[0],CMP[1],true);
+    $$('#palseg button').forEach(x=>x.classList.toggle('sel',x.dataset.p===p));}
+  $('#palseg').addEventListener('click',e=>{const b=e.target.closest('button');if(b)set(b.dataset.p);});set('A');})();
 
 /* ───────── Inverted U ───────── */
 (function(){const path=$('#uperf');if(!path)return;const L=path.getTotalLength();
