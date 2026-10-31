@@ -1,0 +1,1028 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>מועקה ומשימה · מצגת קונספט</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="מצגת קונספט: אפליקציית לייפסטייל שמציעה משימה קוגניטיבית קצרה ברגע של מועקה, מודדת את השינוי, ולומדת מה עובד למי. כולל אפיון ממשק והצעת שיתוף פעולה מחקרי.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&family=Fredoka:wght@400;500;600&family=Heebo:wght@300;400;500;700&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-brain" viewBox="0 0 24 24"><path d="M9 4a3 3 0 0 0-3 3 3 3 0 0 0-2 5 3 3 0 0 0 2 5 3 3 0 0 0 6 1V5a2 2 0 0 0-3-1zM15 4a3 3 0 0 1 3 3 3 3 0 0 1 2 5 3 3 0 0 1-2 5 3 3 0 0 1-6 1"/><path d="M12 9h2M12 14h3"/></symbol>
+  <symbol id="i-timer" viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M10 2h4M12 2v3"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.4-9-9a4.8 4.8 0 0 1 9-3 4.8 4.8 0 0 1 9 3c-2 4.6-9 9-9 9z"/></symbol>
+  <symbol id="i-life" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="m5.6 5.6 3.6 3.6M14.8 14.8l3.6 3.6M18.4 5.6l-3.6 3.6M9.2 14.8l-3.6 3.6"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M18 6l-2.5 2.5M8.5 15.5 6 18"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5z"/><path d="m3 13 9 5 9-5"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="4"/><path d="M2 21c0-4 3-7 7-7s7 3 7 7M16 4a4 4 0 0 1 0 8M22 21c0-3-2-5.5-4.5-6.5"/></symbol>
+  <symbol id="i-flask" viewBox="0 0 24 24"><path d="M9 3h6M10 3v6L4.5 18a2 2 0 0 0 1.7 3h11.6a2 2 0 0 0 1.7-3L14 9V3"/><path d="M7 15h10"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 5 5 9-10"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="i-sound" viewBox="0 0 24 24"><path d="M4 10v4h4l5 4V6l-5 4zM16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></symbol>
+  <symbol id="i-mute" viewBox="0 0 24 24"><path d="M4 10v4h4l5 4V6l-5 4zM17 10l4 4M21 10l-4 4"/></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></symbol>
+  <symbol id="i-db" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></symbol>
+  <symbol id="i-dice" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M8 8h.01M16 8h.01M12 12h.01M8 16h.01M16 16h.01"/></symbol>
+  <symbol id="i-tune" viewBox="0 0 24 24"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></symbol>
+  <symbol id="i-tap" viewBox="0 0 24 24"><path d="M9 11V5a2 2 0 0 1 4 0v5l4.5 1a2.5 2.5 0 0 1 2 2.8L19 19a3 3 0 0 1-3 2h-4a3 3 0 0 1-2.4-1.2L6 15a1.6 1.6 0 0 1 2.4-2l.6.6"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4v16l13-8z"/></symbol>
+  <symbol id="i-redo" viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.3-5.7L20 8.6M20 3v5.6h-5.6"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M20 12H4M10 6l-6 6 6 6"/></symbol>
+  <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></symbol>
+  <symbol id="i-full" viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 19c0-9 6-14 15-14 0 9-5 15-14 15"/><path d="M5 19 13 11"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></symbol>
+  <symbol id="i-maze" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 3v8h6M17 7v10h-6M7 15v6"/></symbol>
+  <symbol id="i-wave" viewBox="0 0 24 24"><path d="M2 12h2l2-6 3 12 3-9 2 5 2-2h6"/></symbol>
+  <symbol id="i-map" viewBox="0 0 24 24"><path d="m9 4-6 2v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14M15 6v14"/></symbol>
+  <symbol id="i-wifi" viewBox="0 0 24 24"><path d="M2 8.5a15 15 0 0 1 20 0M5 12a10 10 0 0 1 14 0M8.5 15.5a5 5 0 0 1 7 0M12 19h.01"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9M10 21h4"/></symbol>
+  <symbol id="i-a11y" viewBox="0 0 24 24"><circle cx="12" cy="4.5" r="1.8"/><path d="M5 8l7 1.5L19 8M12 9.5V14l-3 7M12 14l3 7"/></symbol>
+  <symbol id="i-rocket" viewBox="0 0 24 24"><path d="M5 15c-1.5 1.3-2 5-2 5s3.7-.5 5-2c.8-.9.8-2.2 0-3a2.1 2.1 0 0 0-3 0zM12 15l-3-3a22 22 0 0 1 2-4A13 13 0 0 1 22 2c0 2.7-.8 7.5-6 11a22 22 0 0 1-4 2z"/><path d="M9 12H4s.6-3 2-4c1.6-1.1 5 0 5 0M12 15v5s3-.6 4-2c1.1-1.6 0-5 0-5"/></symbol>
+  <symbol id="i-handshake" viewBox="0 0 24 24"><path d="m11 17 2 2a1.4 1.4 0 0 0 2-2M14 16l2.5 2.5a1.4 1.4 0 0 0 2-2l-3.8-3.8a3 3 0 0 0-4.2 0l-.9.9a1.4 1.4 0 0 1-2-2l2.8-2.8a5 5 0 0 1 6.4-.6l.5.3a3 3 0 0 0 2 .5L21 9M21 3l1 9h-2M3 3 2 14l6.5 6.5a1.4 1.4 0 0 0 2-2M3 4h8"/></symbol>
+  <symbol id="i-coin" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15 9.5c-.5-1-1.6-1.5-3-1.5-1.7 0-3 .8-3 2s1.3 1.7 3 2 3 .8 3 2-1.3 2-3 2c-1.4 0-2.5-.5-3-1.5M12 6v2M12 16v2"/></symbol>
+  <symbol id="i-paper" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M8 8h8M8 12h8M8 16h5"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></symbol>
+  <symbol id="i-scale" viewBox="0 0 24 24"><path d="M12 3v18M5 21h14M5 7h14M5 7l-3 7a3 3 0 0 0 6 0zM19 7l-3 7a3 3 0 0 0 6 0z"/></symbol>
+  <symbol id="i-hourglass" viewBox="0 0 24 24"><path d="M6 2h12M6 22h12M7 2v4a5 5 0 0 0 10 0V2M7 22v-4a5 5 0 0 1 10 0v4"/></symbol>
+</svg>
+
+<div id="bg" class="t-green" aria-hidden="true"><i class="b1"></i><i class="b2"></i><i class="b3"></i><i class="b4"></i></div>
+
+<header class="nav">
+  <div class="brand">
+    <span class="breath" aria-hidden="true"><i></i><i></i><b></b></span>
+    <span class="t">אפליקציה להפחתת מועקה</span>
+    <span class="sep"></span>
+    <span class="chap">מצגת קונספט · <b id="chap">פתיחה</b></span>
+  </div>
+  <div class="ctrls">
+    <button id="nav-prev" aria-label="שקף קודם"><svg class="ic"><use href="#i-up"/></svg><span class="bl">הקודם</span></button>
+    <button class="idx" id="idx" tabindex="-1" aria-live="polite">01 <i>/ 37</i></button>
+    <button id="nav-next" aria-label="שקף הבא"><span class="bl">הבא</span><svg class="ic"><use href="#i-down"/></svg></button>
+    <button id="fs" aria-label="מסך מלא"><svg class="ic"><use href="#i-full"/></svg></button>
+  </div>
+</header>
+
+<div id="viewport"><div id="strip">
+
+<!-- ═════════ פתיחה ═════════ -->
+
+<!-- 01 · Cover -->
+<section class="slide" id="cover" data-ch="0" data-bg="green">
+  <div class="cv">
+    <p class="kick r"><span class="n">CONCEPT</span>מצגת קונספט · אוקטובר 2026</p>
+    <h1 class="h-xl r" style="--d:1">כשמעיק,<br><span class="tt">משימה קצרה שתופסת את הראש.</span></h1>
+    <p class="sub r" style="--d:2">אפליקציית לייפסטייל שמציעה ברגע של מועקה משימה קוגניטיבית אחת, קצובה בזמן, מודדת מיד את השינוי בהרגשה, ולומדת עם הזמן מה עובד למי.</p>
+    <div class="meta r" style="--d:3">
+      <span class="pill"><svg class="ic"><use href="#i-timer"/></svg>2–6 דקות</span>
+      <span class="pill"><svg class="ic"><use href="#i-dice"/></svg>הקצאה מיקרו-אקראית</span>
+      <span class="pill"><svg class="ic"><use href="#i-flask"/></svg>37 מקורות מחקריים</span>
+      <span class="pill"><svg class="ic"><use href="#i-heart"/></svg>כלי לרגע, לא טיפול</span>
+    </div>
+  </div>
+  <div class="orb" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="phone" aria-hidden="true">
+    <div class="scr">
+      <div class="sbar"><span>9:41</span><span>●●● ▮</span></div>
+      <div class="v home sel">
+        <svg class="ic gear"><use href="#i-gear"/></svg>
+        <div class="nowb">עכשיו</div>
+        <div class="pgraph" data-graph="7:4,6:4,8:5,5:3,6:2,7:4"><span class="cap">השבוע</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="chipf cf1" aria-hidden="true"><span class="d"><svg class="ic"><use href="#i-brain"/></svg></span>עומס על זיכרון העבודה</div>
+  <div class="chipf cf2" aria-hidden="true"><span class="d"><svg class="ic"><use href="#i-clock"/></svg></span>נגמר בזמן, לא בהצלחה</div>
+  <div class="chipf cf3" aria-hidden="true"><span class="d"><svg class="ic"><use href="#i-chart"/></svg></span>לפני: 7 · אחרי: 4</div>
+</section>
+
+<!-- 02 · Opening paragraph -->
+<section class="slide" id="opening" data-ch="0" data-bg="blue">
+  <div class="op">
+    <p class="kick r"><span class="n">01</span>הרעיון בפסקה אחת</p>
+    <p class="optext r" style="--d:1">הרעיון מבוסס על מחקרים בפסיכולוגיה קוגניטיבית ובמדעי המוח: <mark class="m1">משימה קוגניטיבית תובענית מפחיתה מצוקה רגעית יותר מפעילות פסיבית</mark>, משום שהיא תופסת את משאבי זיכרון העבודה שהמחשבות המעיקות זקוקות להם<span class="c" data-r="1,2,3"></span>; <mark class="m2">ההשפעה מופיעה כבר אחרי דקות ספורות</mark><span class="c" data-r="4,5"></span>; <mark class="m3">עיסוק פסיבי במסך בשעת מצוקה אינו משפר את ההרגשה</mark> ולעתים מחמיר אותה<span class="c" data-r="9,10,11"></span>; ומשימה רב-חושית בשימוש חוזר <mark class="m4">מפחיתה דיכאון וחרדה גם בטווח של שבועות</mark><span class="c" data-r="24,25"></span>.</p>
+    <div class="opk st">
+      <div><svg class="ic"><use href="#i-brain"/></svg>המשימה תופסת את המשאבים שהמועקה צריכה</div>
+      <div><svg class="ic"><use href="#i-timer"/></svg>דקות ספורות מספיקות לאפקט מדיד</div>
+      <div><svg class="ic"><use href="#i-phone"/></svg>במקום הגלילה שאנשים בוחרים בפועל</div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 · Abstract -->
+<section class="slide" id="abstract" data-ch="0" data-bg="teal">
+  <p class="kick r"><span class="n">02</span>תקציר</p>
+  <h2 class="h-l r" style="--d:1">משימה אחת, מדידה אחת, <span class="tt">ולמידה מצטברת של מה עובד למי.</span></h2>
+  <div class="flow3">
+    <div class="fs fa card r" style="--d:2"><span class="ico"><svg class="ic"><use href="#i-heart"/></svg></span><span class="k">רגע של מועקה</span><h3>פותחים, מדרגים</h3><p>שאלה אחת על עוצמת המועקה ונקודה אחת על ריבוע ההרגשה. בלי בחירות, בלי טפסים.</p></div>
+    <div class="arw r" style="--d:3"><svg viewBox="0 0 24 24" class="ic"><use href="#i-arrow"/></svg></div>
+    <div class="fs fb card r" style="--d:4"><span class="ico"><svg class="ic"><use href="#i-timer"/></svg></span><span class="k">משימה קצובה</span><h3>2–6 דקות של עומס</h3><p>משימה מתוך מאגר גדול ומסווג, שהמערכת מגרילה. נגמרת בזמן, בלי ניקוד ובלי "עוד סיבוב".</p></div>
+    <div class="arw r" style="--d:5"><svg viewBox="0 0 24 24" class="ic"><use href="#i-arrow"/></svg></div>
+    <div class="fs fc card r" style="--d:6"><span class="ico"><svg class="ic"><use href="#i-chart"/></svg></span><span class="k">מדידה מיידית</span><h3>פחות מדקה</h3><p>אותן שאלות שוב. רשומה אחת נוצרת: מצב פתיחה, משימה, ביצוע ותוצאה.</p></div>
+  </div>
+  <div class="novel card r" style="--d:7">
+    <div>
+      <p class="h-s">החידוש אינו במשימות. הוא במה שהמחקר טרם עשה.</p>
+      <p class="p" style="margin-top:8px">אף מחקר לא בדק אילו סוגי משימות עובדים על אילו סוגי מצוקה ואצל אילו אנשים, ואף מחקר לא בודד את המשימה הקוגניטיבית מרכיב פסיכולוגי נלווה. האפליקציה מקצה משימות באקראי בשלב הראשון כדי לייצר מידע סיבתי, ומשתמשת בלמידת מכונה כדי ללמוד בהדרגה מה עובד למי.</p>
+    </div>
+    <div class="twin">
+      <div><svg class="ic"><use href="#i-tune"/></svg>כלי שמשתפר לכל משתמש עם הזמן</div>
+      <div><svg class="ic"><use href="#i-db"/></svg>מערך נתונים בהיקף שאין לו מקביל במחקר המעבדתי</div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 · Agenda -->
+<section class="slide" id="agenda" data-ch="0" data-bg="mist">
+  <p class="kick r"><span class="n">03</span>מבנה המצגת</p>
+  <h2 class="h-l r" style="--d:1">שבעה פרקים, <span class="tt">מהמדע אל המסכים ואל שיתוף הפעולה.</span></h2>
+  <div class="agenda st">
+    <button class="ag" data-go="science"><span class="n">1</span><span>הבסיס המדעי<small>שש שורות של ממצאים, כולל צבע</small></span><svg class="ic go"><use href="#i-arrow"/></svg></button>
+    <button class="ag" data-go="gap"><span class="n">2</span><span>הפער שהמחקר השאיר פתוח<small>ארבע שאלות שאי אפשר לענות עליהן במעבדה</small></span><svg class="ic go"><use href="#i-arrow"/></svg></button>
+    <button class="ag" data-go="system"><span class="n">3</span><span>הרעיון והמערכת<small>מאגר, עקרונות, טקסונומיה ומשפחות משימה</small></span><svg class="ic go"><use href="#i-arrow"/></svg></button>
+    <button class="ag hl" data-go="ui-principles"><span class="n">4</span><span>אפיון הממשק · הדגמה חיה<small>מפת מסכים, מערכת עיצוב וזרימה שאפשר ללחוץ עליה</small></span><svg class="ic go"><use href="#i-arrow"/></svg></button>
+    <button class="ag" data-go="record"><span class="n">5</span><span>נתונים, הקצאה וניתוח<small>רשומת סשן, ניסוי מיקרו-אקראי ושאלות הניתוח</small></span><svg class="ic go"><use href="#i-arrow"/></svg></button>
+    <button class="ag" data-go="limits"><span class="n">6</span><span>גבולות, בטיחות ואתיקה<small>כלי לרגע, לא טיפול ולא מכשיר רפואי</small></span><svg class="ic go"><use href="#i-arrow"/></svg></button>
+    <button class="ag hl" data-go="collab"><span class="n">7</span><span>הצעה לשיתוף פעולה מחקרי<small>הזרוע החסרה, קוהורט מתוקף ומסגרות</small></span><svg class="ic go"><use href="#i-arrow"/></svg></button>
+    <button class="ag" data-go="refs"><span class="n">∗</span><span>מקורות<small>37 מקורות, עם קישורי DOI</small></span><svg class="ic go"><use href="#i-arrow"/></svg></button>
+  </div>
+</section>
+
+<!-- ═════════ 1 · הבסיס המדעי ═════════ -->
+
+<!-- 05 · Six lines -->
+<section class="slide" id="science" data-ch="1" data-bg="green">
+  <p class="kick r"><span class="n">1.0</span>הבסיס המדעי</p>
+  <h2 class="h-l r" style="--d:1">חמש שורות של ממצאים ושורה שישית על צבע. <span class="tt">אף אחת לא חוברה עד כה למוצר אחד.</span></h2>
+  <div class="sci st">
+    <div class="sc card"><div class="top"><span class="ico"><svg class="ic"><use href="#i-brain"/></svg></span><span class="nn">1.1</span></div><h3>עומס קוגניטיבי מרעיב את הרגש השלילי</h3><div class="big">d = 0.27<small>מטא-אנליזה של 306 השוואות<span class="c" data-r="3"></span></small></div></div>
+    <div class="sc card"><div class="top"><span class="ico"><svg class="ic"><use href="#i-timer"/></svg></span><span class="nn">1.2</span></div><h3>משימה קצרה מספיקה, והאפקט עמיד לשימוש חוזר</h3><div class="big">3 min<small>הורידו כמיהה בכ-14 נקודות מתוך 100<span class="c" data-r="4"></span></small></div></div>
+    <div class="sc card"><div class="top"><span class="ico"><svg class="ic"><use href="#i-tap"/></svg></span><span class="nn">1.3</span></div><h3>משימה פעילה עדיפה על צריכה פסיבית</h3><div class="big">n = 234<small>גירוי שובה אבל פסיבי לא השפיע כלל<span class="c" data-r="8"></span></small></div></div>
+    <div class="sc card"><div class="top"><span class="ico"><svg class="ic"><use href="#i-phone"/></svg></span><span class="nn">1.4</span></div><h3>פנייה למסך כדרך להרגיע אינה עובדת</h3><div class="big">52,737<small>תצפיות בחיי היום-יום<span class="c" data-r="9"></span></small></div></div>
+    <div class="sc card"><div class="top"><span class="ico"><svg class="ic"><use href="#i-sound"/></svg></span><span class="nn">1.5</span></div><h3>משימה רב-חושית בשימוש חוזר מפחיתה דיכאון וחרדה</h3><div class="big">94%<small>היענות במחקר מבוקר על 103 משתתפים<span class="c" data-r="25"></span></small></div></div>
+    <div class="sc card"><div class="top"><span class="ico"><svg class="ic"><use href="#i-leaf"/></svg></span><span class="nn">1.6</span></div><h3>צבע: רוויות ובהירות חשובות יותר מגוון</h3><div class="big">15–35%<small>רוויות, בבהירות 80–95%<span class="c" data-r="C1,C2"></span></small></div></div>
+  </div>
+</section>
+
+<!-- 06 · Working memory -->
+<section class="slide" id="load" data-ch="1" data-bg="blue">
+  <div class="cols">
+    <div class="col">
+      <p class="kick r"><span class="n">1.1</span>עומס קוגניטיבי</p>
+      <h2 class="h-l r" style="--d:1">זיכרון העבודה מוגבל. <span class="tt">משימה תובענית לא משאירה מקום למועקה.</span></h2>
+      <p class="p r" style="--d:2">החזקת מצב רגשי שלילי צורכת את אותם משאבים שמשמשים משימה תובענית. Van Dillen ו-Koole הראו שעצם קיום משימה, מורכבותה ואי הצפיות שלה מורידים מצב רוח שלילי<span class="c" data-r="1"></span>.</p>
+      <div class="srow r" style="--d:3;grid-template-columns:1fr 1fr">
+        <div class="scard card"><span class="tag">fMRI · תרגיל חשבון קשה</span><div class="stat"><span class="v">r = 0.52</span><span class="l">ירידה באמיגדלה מול עלייה בקליפה הקדמית הדורסו-לטרלית<span class="c" data-r="2"></span></span></div></div>
+        <div class="scard card"><span class="tag">מטא-אנליזה · 306 השוואות</span><div class="stat"><span class="v">d = 0.27</span><span class="l">הסחת דעת היא אסטרטגיית ויסות יעילה<span class="c" data-r="3"></span></span></div></div>
+      </div>
+    </div>
+    <div class="wm card r" style="--d:2">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <span class="h-s">מה תופס את הקיבולת?</span>
+        <div class="seg" id="wmseg"><button class="sel" data-m="0">גלילה פסיבית</button><button data-m="1">משימה תובענית</button></div>
+      </div>
+      <div class="slots" id="wmslots">
+        <div class="slot ru">"למה אמרתי את זה"</div><div class="slot ru">"מה אם מחר…"</div><div class="slot ru">מחשבה שחוזרת</div><div class="slot ru">"עוד סרטון"</div>
+      </div>
+      <div class="meter"><span>מקום למחשבות המעיקות</span><span class="bar am"><i id="wmA" style="width:85%"></i></span><b id="wmAv">גבוה</b></div>
+      <div class="meter"><span>קשב החוצה, אל המשימה</span><span class="bar pf"><i id="wmB" style="width:15%"></i></span><b id="wmBv">נמוך</b></div>
+      <span class="demo-tag">המחשה של המנגנון, לא נתוני מחקר</span>
+    </div>
+  </div>
+</section>
+
+<!-- 07 · Short & active -->
+<section class="slide" id="brief" data-ch="1" data-bg="teal">
+  <p class="kick r"><span class="n">1.2 · 1.3</span>קצר ופעיל</p>
+  <h2 class="h-l r" style="--d:1">שלוש דקות מספיקות. <span class="tt">והרכיב הפעיל הוא האינטראקטיביות.</span></h2>
+  <div class="srow st" style="grid-template-columns:repeat(3,1fr)">
+    <div class="scard card"><span class="tag">מחקר שדה · שבוע</span><div class="stat"><span class="v">−14<small>/100</small></span><span class="l">שלוש דקות של משחק חזותי הורידו את עוצמת הכמיהה, והאפקט לא נשחק לאורך השבוע<span class="c" data-r="4"></span></span></div></div>
+    <div class="scard card"><span class="tag">מטא-אנליזה · 22 מדגמים</span><div class="stat"><span class="v">d ≈ 0.35</span><span class="l">הפסקות קצרות העלו מרץ והורידו עייפות, בלי הבדל בין שתי דקות לעשר<span class="c" data-r="5"></span></span></div></div>
+    <div class="scard card"><span class="tag">ניסוי · 234 משתתפים</span><div class="stat"><span class="v">0</span><span class="l">גירוי חזותי שובה אבל פסיבי לא השפיע כלל. מה שעובד הוא לעשות, לא לצפות<span class="c" data-r="8"></span></span></div></div>
+  </div>
+  <div class="srow st" style="grid-template-columns:1fr 1fr">
+    <div class="note mint"><svg class="ic"><use href="#i-check"/></svg><span><b>משחק קצר עלה על הרגעה מודרכת</b> בהשוואה מבוקרת במקום העבודה, והפסקה פסיבית דווקא הורידה מעט את מצב הרוח<span class="c" data-r="6"></span>.</span></div>
+    <div class="note"><svg class="ic"><use href="#i-chart"/></svg><span><b>יתרון המשחק על מינדפולנס גדל מיום ליום</b> במחקר של חמישה ימים<span class="c" data-r="7"></span>.</span></div>
+  </div>
+</section>
+
+<!-- 08 · Screens don't help -->
+<section class="slide" id="screen" data-ch="1" data-bg="sand">
+  <div class="cols">
+    <div class="col">
+      <p class="kick r"><span class="n">1.4</span>הבעיה שהמוצר פותר</p>
+      <h2 class="h-l r" style="--d:1">במצוקה אנשים פונים לטלפון. <span class="tt">ואחרי זה מרגישים קצת יותר רע.</span></h2>
+      <p class="p r" style="--d:2">במחקר עם יותר מ-1,000 משתתפים ו-52,737 תצפיות בחיי היום-יום, רגש שלילי ניבא פנייה לטלפון, אבל השימוש בטלפון ניבא מצב רוח מעט גרוע יותר אחריו<span class="c" data-r="9"></span>. ממצא דומה התקבל במחקר נפרד<span class="c" data-r="10"></span>.</p>
+      <div class="srow r" style="--d:3;grid-template-columns:1fr 1fr">
+        <div class="scard card"><span class="tag">ESM</span><div class="stat"><span class="v">1,000+</span><span class="l">משתתפים, 52,737 תצפיות<span class="c" data-r="9"></span></span></div></div>
+        <div class="scard card"><span class="tag">7 ניסויים</span><div class="stat"><span class="v">↑ שעמום</span><span class="l">דילוג מתמיד בין תכנים הגביר שעמום, אף שציפו שיפחית<span class="c" data-r="11"></span></span></div></div>
+      </div>
+      <div class="note sand r" style="--d:4"><svg class="ic"><use href="#i-info"/></svg><span>הפער בין מה שאנשים בוחרים לבין מה שעוזר להם <b>הוא הבעיה שהמוצר מבקש לפתור.</b></span></div>
+    </div>
+    <div class="loop r" style="--d:2" aria-hidden="true">
+      <svg viewBox="0 0 520 520"><defs><marker id="ah" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z" fill="#7EB5AE"/></marker></defs>
+        <circle cx="260" cy="260" r="180" fill="none" stroke="#C5D8E6" stroke-width="2"/>
+        <path class="dash" d="M260 80 A180 180 0 0 1 416 350" fill="none" stroke="#7EB5AE" stroke-width="4" stroke-dasharray="10 10" marker-end="url(#ah)"/>
+        <path class="dash" d="M416 350 A180 180 0 0 1 104 350" fill="none" stroke="#7FA3BF" stroke-width="4" stroke-dasharray="10 10" marker-end="url(#ah)"/>
+        <path class="dash" d="M104 350 A180 180 0 0 1 260 80" fill="none" stroke="#8A95A5" stroke-width="4" stroke-dasharray="10 10" marker-end="url(#ah)"/>
+      </svg>
+      <div class="nd" style="top:28px;left:165px">רגש שלילי<small>מועקה, דאגה, עייפות</small></div>
+      <div class="nd" style="top:330px;left:318px">פנייה לטלפון<small>גלילה, דילוג, פיד</small></div>
+      <div class="nd" style="top:330px;left:12px">מצב רוח מעט גרוע יותר<small>ותחושה של זמן שאבד</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- 09 · Amedi lab -->
+<section class="slide" id="amedi" data-ch="1" data-bg="teal">
+  <p class="kick r"><span class="n">1.5</span>מעבדת עמדי · אוניברסיטת רייכמן</p>
+  <h2 class="h-l r" style="--d:1">משימת ניווט רב-חושית בשימוש חוזר: <span class="tt">ירידה בדיכאון ובחרדה לאורך שבועות.</span></h2>
+  <p class="p r" style="--d:2;max-width:1260px">אפליקציה שבה ניווט במבוכים תלת-ממדיים, עם הסרת ראייה מדורגת והחלפתה ברמזי צליל, שולב עם תרגילים פסיכולוגיים קצרים. כ-25 מתוך 30 דקות ביום הוקדשו למשימה.</p>
+  <div class="am3 st">
+    <div class="amc card"><span class="hd"><svg class="ic"><use href="#i-flask"/></svg>פיילוט · 17 משתתפים · שבועיים<span class="c" data-r="24"></span></span><div class="vv"><div class="stat"><span class="v">−26.6%</span><span class="l">בציון הדיכאון</span></div><div class="stat"><span class="v">d = −0.83</span><span class="l">אפקט גדול</span></div></div><p class="small">לצד ירידה בקישוריות בתוך רשת ברירת המחדל, הרשת שמזוהה עם רומינציה.</p></div>
+    <div class="amc card"><span class="hd"><svg class="ic"><use href="#i-users"/></svg>מחקר מבוקר · 103 משתתפים<span class="c" data-r="25"></span></span><div class="vv"><div class="stat"><span class="v">94%</span><span class="l">היענות</span></div><div class="stat"><span class="v">3+3</span><span class="l">שבועות: יומי, ואז פעמיים בשבוע</span></div></div><p class="small">הפחתה בדיכאון ובחרדה מצבית. האפקט נשמר ואף התחזק בשלב התדירות הנמוכה.</p></div>
+    <div class="amc card"><span class="hd"><svg class="ic"><use href="#i-wave"/></svg>המשימה עצמה ומחקר המוזיקה<span class="c" data-r="26,27"></span></span><p class="p" style="font-size:16px">המשימה הראתה למידה תפיסתית ושינוי קישוריות באזורי זיכרון וניווט. הוספת רטט מסונכרן למוזיקה הפחיתה חרדת מצב ושיפרה מצב רוח לעומת שמע בלבד, במיוחד כשהמשתתפים בחרו את המוזיקה בעצמם.</p></div>
+  </div>
+  <div class="concl st">
+    <div><b>1</b>ערוץ רב-חושי (צליל, רטט) שייך למאגר המשימות מהשלב הראשון.</div>
+    <div><b>2</b>הסרת מידע חושי היא מנגנון קושי לגיטימי, לצד מהירות וכמות.</div>
+    <div><b>3</b>שימוש חוזר הוא השערה שראויה לזרוע מדידה משלה.</div>
+  </div>
+</section>
+
+<!-- 10 · Color -->
+<section class="slide" id="color" data-ch="1" data-bg="mist">
+  <p class="kick r"><span class="n">1.6</span>צבע ורגש</p>
+  <h2 class="h-l r" style="--d:1">לא הגוון קובע. <span class="tt">רוויות נמוכה ובהירות גבוהה.</span></h2>
+  <div class="cols" style="align-items:stretch;gap:30px">
+    <div class="clab card r" style="--d:2;flex:1.35">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div class="swatch" id="swatch"><b id="swhex">#EEF5F4</b></div>
+        <div class="seg" id="hueseg"><button data-h="105" class="sel">ירוק</button><button data-h="172">טורקיז</button><button data-h="205">כחול</button><button data-h="25">כתום</button></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px;justify-content:center">
+        <p class="small">Valdez &amp; Mehrabian: בהירות מעלה נעימות ומורידה עוררות; רוויות מעלה עוררות<span class="c" data-r="C1"></span></p>
+        <p class="h-s ltr" style="font-size:21px;text-align:right;display:block">Arousal = −.31B + .60S</p>
+        <div class="rng"><label for="rB">בהירות</label><input type="range" id="rB" min="40" max="97" value="90"><b id="vB">90%</b></div>
+        <div class="rng"><label for="rS">רוויות</label><input type="range" id="rS" min="5" max="90" value="25"><b id="vS">25%</b></div>
+        <div class="arous"><span>עוררות</span><span class="bar"><i id="arI"></i></span><span>נמוכה ← גבוהה</span></div>
+        <span class="demo-tag">המחשה של כיוון האפקט לפי המודל, לא ערך מדוד. הטווח שנבחר למוצר: רוויות 15–35%, בהירות 80–95%</span>
+      </div>
+    </div>
+    <div class="col r" style="--d:3;gap:12px">
+      <div class="nos">
+        <div><svg class="ic" style="color:var(--g-d)"><use href="#i-check"/></svg><span>תאורה אדומה וצהובה העלתה חרדת מצב לעומת ירוקה וכחולה<span class="c" data-r="C3"></span>; ירוק הפחית לחץ בסביבה רפואית<span class="c" data-r="C4"></span>.</span></div>
+        <div><svg class="ic" style="color:var(--g-d)"><use href="#i-check"/></svg><span>כחול הוריד קצב לב, וצבעים חיוורים עוררו תגובות חיוביות יותר מעזים<span class="c" data-r="C5"></span>. תאורה כחולה קיצרה הרפיה אחרי סטרס פי שלושה, לכמה דקות<span class="c" data-r="C6"></span>.</span></div>
+        <div><svg class="ic"><use href="#i-info"/></svg><span>אצל בעלי חרדת תכונה גבוהה כחול לעיתים מעלה חרדה, ולכן <b>ירוק הוא הבחירה הבטוחה</b>. הספרות עדיין צעירה<span class="c" data-r="C7"></span>.</span></div>
+        <div><svg class="ic"><use href="#i-x"/></svg><span>לא שרדו שכפול: ורוד Baker-Miller<span class="c" data-r="C8"></span> ו"תרפיית צבע", שבה החרדה ירדה גם בלי לראות את הצבעים<span class="c" data-r="C9"></span>.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ 2 · הפער ═════════ -->
+
+<!-- 11 · Gap -->
+<section class="slide" id="gap" data-ch="2" data-bg="blue">
+  <p class="kick r"><span class="n">2</span>הפער שהמחקר השאיר פתוח</p>
+  <h2 class="h-l r" style="--d:1">המנגנון מבוסס. <span class="tt">ארבע שאלות נשארו בלי מענה.</span></h2>
+  <div class="cols" style="align-items:stretch;gap:24px">
+    <div class="gaps st" style="flex:1">
+      <div class="gp card"><span class="qn">1</span><div><h3>אין מיפוי בין מצוקה למשימה</h3><p>משחק חזותי לא היה טוב יותר משחזור ספרות או ספירה פשוטה<span class="c" data-r="12"></span>. אף מחקר לא בדק מה מתאים למי.</p></div></div>
+      <div class="gp card"><span class="qn">2</span><div><h3>רמת הקושי הנכונה לא ידועה</h3><p>עומס מדורג הראה U הפוכה<span class="c" data-r="13"></span>. ב-113 מחקרים, אתגר כמעט לא ניבא זרימה ואוטונומיה ניבאה חזק<span class="c" data-r="14"></span>.</p></div></div>
+      <div class="gp card"><span class="qn">3</span><div><h3>אין השוואה בבחירה חופשית</h3><p>כל המחקרים הכתיבו מה לעשות. כשניתנה בחירה בין חשיבה לקריאת חדשות, <b>87% בחרו בחדשות</b><span class="c" data-r="15"></span>.</p></div></div>
+      <div class="gp card key"><span class="qn">4</span><div><h3>אף מחקר לא הפריד משימה מרכיב פסיכולוגי</h3><p>במחקרי עמדי המשימה הגיעה עם מיינדפולנס ו-CBT, והחוקרים עצמם מציעים זרועות ייעודיות<span class="c" data-r="24,25"></span>.</p></div></div>
+    </div>
+    <div class="ucurve card r" style="--d:3">
+      <span class="h-s" style="font-size:20px">עומס ← ביצוע וחרדה</span>
+      <svg viewBox="0 0 420 260" id="usvg" role="img" aria-label="המחשת עקומת U הפוכה">
+        <line x1="30" y1="230" x2="410" y2="230" stroke="#C5D8E6" stroke-width="2"/>
+        <line x1="30" y1="230" x2="30" y2="14" stroke="#C5D8E6" stroke-width="2"/>
+        <path id="uperf" d="M30 200 C 90 40, 160 40, 220 90 S 340 210, 410 222" fill="none" stroke="#7EB5AE" stroke-width="4" stroke-linecap="round"/>
+        <path d="M30 210 C 140 196, 260 120, 410 40" fill="none" stroke="#8A95A5" stroke-width="3" stroke-dasharray="7 7" stroke-linecap="round"/>
+        <text x="412" y="252" font-size="13" fill="#62737f" text-anchor="end" font-family="Heebo">עומס גבוה</text>
+        <text x="34" y="252" font-size="13" fill="#62737f" font-family="Heebo">עומס נמוך</text>
+        <text x="122" y="40" font-size="13" fill="#3A7A73" font-family="Heebo" font-weight="700">ביצוע</text>
+        <text x="352" y="44" font-size="13" fill="#62737f" font-family="Heebo">חרדה</text>
+        <line id="ucur" x1="110" y1="230" x2="110" y2="20" stroke="#43698A" stroke-width="1.5" stroke-dasharray="3 4"/>
+        <circle id="udot" cx="110" cy="70" r="8" fill="#43698A" stroke="#fbfdfc" stroke-width="3"/>
+      </svg>
+      <input type="range" id="uload" min="0" max="100" value="22" aria-label="רמת עומס" style="accent-color:#3A7A73;direction:ltr">
+      <p class="small" id="utext">עומס נמוך: הביצוע הטוב ביותר במחקר של Spangler ו-Friedman.</p>
+      <span class="demo-tag">צורת העקומה להמחשה בלבד</span>
+    </div>
+  </div>
+  <div class="note r" style="--d:6"><svg class="ic"><use href="#i-info"/></svg><span>ארבע השאלות האלה <b>אינן ניתנות לבדיקה במעבדה.</b> הן דורשות מערכת שמגיעה לאנשים ברגעי מצוקה אמיתיים, מגוונת את המשימות, ומודדת את התוצאה באופן שיטתי.</span></div>
+</section>
+
+<!-- ═════════ 3 · הרעיון והמערכת ═════════ -->
+
+<!-- 12 · System -->
+<section class="slide" id="system" data-ch="3" data-bg="green">
+  <p class="kick r"><span class="n">3</span>הרעיון והמערכת</p>
+  <h2 class="h-l r" style="--d:1">התערבות רגעית בטלפון, <span class="tt">בהקשר האמיתי שבו הצורך עולה.</span></h2>
+  <p class="lead r" style="--d:2">נשענת על עקרונות הטיפול הרגעי בטלפון (EMI), שבו ההתערבות ניתנת בחיי היום-יום ולא בקליניקה<span class="c" data-r="16"></span>.</p>
+  <div class="parts st">
+    <div class="pt3 card"><span class="ico"><svg class="ic"><use href="#i-grid"/></svg></span><h3>מאגר משימות מסווג</h3><p>מנועים אינטראקטיביים שמייצרים וריאציה חדשה בכל הפעלה, ומשימות סטטיות שמייצרים מודלי AI. כל משימה מסווגת לפי ערוץ, תחום, מנגנון קושי ואורך.</p></div>
+    <div class="pt3 card"><span class="ico"><svg class="ic"><use href="#i-timer"/></svg></span><h3>הגבלת זמן כעיקרון</h3><p>המשימה נסגרת אחרי דקות ספורות, גם אם המשתמש היה ממשיך. משהו שמושך פנימה ללא סוף משאיר תחושה של זמן שאבד<span class="c" data-r="8"></span>. שלוש דקות מספיקות<span class="c" data-r="4"></span>.</p></div>
+    <div class="pt3 card"><span class="ico"><svg class="ic"><use href="#i-chat"/></svg></span><h3>שאלון היכרות</h3><p>איך המועקה נראית בדרך כלל, העדפות ערוץ ובחירת ערכת צבעים, ועוד חלק רשות על הרגלים. בשפת יום-יום ולא כאבחון קליני.</p></div>
+    <div class="pt3 card"><span class="ico"><svg class="ic"><use href="#i-leaf"/></svg></span><h3>ערכת צבעים לבחירה</h3><p>שלוש ערכות שנגזרו מהספרות. הערכה היא עטיפה בלבד ואינה נוגעת בגירויי המשימה, והבחירה נרשמת כמשתנה.</p></div>
+    <div class="pt3 card"><span class="ico"><svg class="ic"><use href="#i-dice"/></svg></span><h3>שני מצבי בחירה</h3><p>בהתחלה הקצאה אקראית, שמייצרת ידע סיבתי ולא רק מתאמי (MRT<span class="c" data-r="21"></span>). אחר כך מצב מותאם, שממשיך להגריל חלק קטן.</p></div>
+    <div class="pt3 card"><span class="ico"><svg class="ic"><use href="#i-chart"/></svg></span><h3>מדידה אחרי המשימה</h3><p>פחות מדקה: שינוי בהרגשה בסולם מאומת (Affect Grid, SUDS), ולצידו נתוני ביצוע אובייקטיביים. סקרים כאלה מושלמים בשיעורים גבוהים לאורך שבועות<span class="c" data-r="17,20"></span>.</p></div>
+  </div>
+</section>
+
+<!-- 13 · Principles -->
+<section class="slide" id="principles" data-ch="3" data-bg="teal">
+  <p class="kick r"><span class="n">3.1</span>שבעה עקרונות עיצוב</p>
+  <h2 class="h-l r" style="--d:1">כל החלטה במוצר <span class="tt">נגזרת ממקור במחקר.</span></h2>
+  <div class="prn st">
+    <div class="pr card"><span class="k">01</span><h3>לרגע, לא לתוכנית</h3><p>2–6 דקות, פתיחה בלחיצה אחת, בלי בחירות לפני ההתחלה<span class="c" data-r="4,5,16"></span>.</p></div>
+    <div class="pr card"><span class="k">02</span><h3>קשב החוצה</h3><p>משימות תפיסתיות, מרחביות ומוטוריות. אם אפשר לפתור אותה תוך חשיבה על עצמך, היא לא מתאימה<span class="c" data-r="1,2,24"></span>.</p></div>
+    <div class="pr card"><span class="k">03</span><h3>עומס אמיתי, אבל מוגרל</h3><p>קושי מוגרל מ-3 רמות, מוטה למטה כשהמועקה גבוהה<span class="c" data-r="13,19,22"></span>.</p></div>
+    <div class="pr card"><span class="k">04</span><h3>קושי דרך הסרת מידע</h3><p>מלא ← מוסתר חלקית ← נשען על חוש אחר<span class="c" data-r="26"></span>.</p></div>
+    <div class="pr card"><span class="k">05</span><h3>רב-חושיות מהיום הראשון</h3><p>צליל מרחבי ורטט הם חלק מהטקסונומיה<span class="c" data-r="27"></span>.</p></div>
+    <div class="pr card"><span class="k">06</span><h3>המערכת מגרילה, המשתמש בוחר עטיפה</h3><p>ערכת צבעים, מוזיקה מהספרייה שלו, ומשך מתוך שניים. הבחירה נרשמת<span class="c" data-r="14,21"></span>.</p></div>
+    <div class="pr card"><span class="k">07</span><h3>סיום מוגדר</h3><p>טיימר גלוי, נגמר בזמן ולא בהצלחה. בלי ניקוד, רצפים או דירוגים<span class="c" data-r="8,11"></span>.</p></div>
+    <div class="pr card" style="background-image:var(--grad-soft)"><span class="k">=</span><h3>המשוב היחיד</h3><p>השינוי בהרגשה של המשתמש עצמו, בגרף אישי של לפני ואחרי.</p></div>
+  </div>
+</section>
+
+<!-- 14 · Taxonomy -->
+<section class="slide" id="taxonomy" data-ch="3" data-bg="blue">
+  <p class="kick r"><span class="n">3.2</span>תכנון המשימות</p>
+  <h2 class="h-l r" style="--d:1">משימה היא תוצר של משפחה. <span class="tt">כל הפעלה מייצרת וריאציה חדשה.</span></h2>
+  <p class="lead r" style="--d:2">כך המאגר גדול באמת, כל משימה מסווגת מראש, ואי אפשר לשנן אותה. ארבעה צירי סיווג:</p>
+  <div class="tblw card r" style="--d:3">
+    <table class="tbl">
+      <thead><tr><th style="width:170px">ציר</th><th>ערכים</th><th style="width:420px">הערה</th></tr></thead>
+      <tbody>
+        <tr><td>ערוץ</td><td><div class="chips"><span>חזותי</span><span>שמיעתי</span><span>רב-חושי (שמע + רטט)</span><span>מילולי-מכני</span></div></td><td>מילולי רק כשהוא מכני, לא רפלקטיבי</td></tr>
+        <tr><td>תחום</td><td><div class="chips"><span>מרחבי</span><span>קשב</span><span>זיכרון עבודה</span><span>מספרי</span><span>מוטורי-קצבי</span></div></td><td>התחום הוא מה שנלמד: מה עובד על איזו מועקה</td></tr>
+        <tr><td>מנגנון קושי</td><td><div class="chips"><span>כמות / מהירות</span><span>הסרת מידע חושי</span><span>הסחה מתחרה</span></div></td><td>רמות 1–3 בכל משפחה</td></tr>
+        <tr><td>אורך</td><td><div class="chips"><span class="ltr">2</span><span class="ltr">4</span><span class="ltr">6</span><span>דקות</span></div></td><td>המשתמש בוחר מתוך שניים שהמערכת מציעה</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="srow st" style="grid-template-columns:repeat(3,1fr)">
+    <div class="note"><svg class="ic"><use href="#i-play"/></svg><span><b>מסך פתיחה עד 5 שניות:</b> הוראה במשפט אחד, הדגמה של 2 שניות, כפתור אחד.</span></div>
+    <div class="note mint"><svg class="ic"><use href="#i-tune"/></svg><span><b>כיוונון עדין בתוך הרמה:</b> שלב למעלה אחרי 4 הצלחות, למטה אחרי 2 כישלונות.</span></div>
+    <div class="note sand"><svg class="ic"><use href="#i-clock"/></svg><span><b>סיום בזמן:</b> מסך מעבר ניטרלי של 2 שניות, ואז השאלון. אין מסך תוצאה.</span></div>
+  </div>
+</section>
+
+<!-- 15 · Families -->
+<section class="slide" id="families" data-ch="3" data-bg="teal">
+  <p class="kick r"><span class="n">3.3</span>שש משפחות לגרסה הראשונה</p>
+  <div class="fam">
+    <div class="flist r" style="--d:1" id="famlist">
+      <button class="fmb sel" data-f="0"><span class="id">F1</span><span><b>מבוך עם הסרת ראייה</b><small>רב-חושי · מרחבי</small></span></button>
+      <button class="fmb" data-f="1"><span class="id">F2</span><span><b>איתור צליל נע</b><small>שמיעתי · מרחבי</small></span></button>
+      <button class="fmb" data-f="2"><span class="id">F3</span><span><b>מוזיקה ברטט</b><small>רב-חושי · קשב</small></span></button>
+      <button class="fmb" data-f="3"><span class="id">F4</span><span><b>מפה שנעלמת</b><small>חזותי · זיכרון עבודה</small></span></button>
+      <button class="fmb" data-f="4"><span class="id">F5</span><span><b>מעקב מטרות</b><small>חזותי · קשב</small></span></button>
+      <button class="fmb" data-f="5"><span class="id">F6</span><span><b>קצב בלי צליל</b><small>רב-חושי · מוטורי-קצבי</small></span></button>
+      <button class="fmb" data-f="6"><span class="id">F7</span><span><b>מאגר מיוצר AI</b><small>חזותי-סטטי · משתנה</small></span></button>
+    </div>
+    <div class="col" style="gap:16px">
+      <div class="fdet card r" style="--d:2">
+        <div style="display:flex;flex-direction:column;gap:14px;min-width:0">
+          <h2 class="h-m" id="fname">מבוך עם הסרת ראייה</h2>
+          <dl class="kv" id="fkv"></dl>
+          <div class="lv3" id="flv"></div>
+        </div>
+        <div class="stage"><canvas id="famcv" width="600" height="600" aria-label="הדגמה מונפשת של המשפחה"></canvas></div>
+      </div>
+      <div class="fict r" style="--d:3"><svg class="ic"><use href="#i-info"/></svg><span><b>המשימות במצגת הן דוגמאות שהומצאו לצורך ההמחשה.</b> המשימות האמיתיות באפליקציה יתוכננו בהתאם למחקרים ולספרות המדעית בתחום, ויעברו בדיקה של פתירות וקושי לפני שייכנסו למאגר.</span></div>
+      <div class="srow r" style="--d:4;grid-template-columns:1fr 1fr">
+        <div class="note mint"><svg class="ic"><use href="#i-rocket"/></svg><span><b>סדר פיתוח:</b> F4 ו-F5 ראשונות (זולות, מספיקות לפיילוט), F1 ו-F3 אחר כך (המבדלות<span class="c" data-r="26,27"></span>), F2 ו-F6 בשלב שני.</span></div>
+        <div class="note sand"><svg class="ic"><use href="#i-x"/></svg><span><b>מה לא נכנס:</b> ניקוד ורצפים, תיאור רגש, משימות בלי סיום בזמן, וכל מה שאפשר לבצע בלי להסתכל על המסך.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ 4 · אפיון הממשק ═════════ -->
+
+<!-- 16 · UI principles -->
+<section class="slide" id="ui-principles" data-ch="4" data-bg="green">
+  <p class="kick r"><span class="n">4.1</span>אפיון הממשק · עקרונות</p>
+  <h2 class="h-l r" style="--d:1">המשתמש מגיע ברגע של מועקה. <span class="tt">כל החלטת ממשק נגזרת מזה.</span></h2>
+  <div class="taps card r" style="--d:2">
+    <span class="h-s" style="font-size:20px;margin-left:10px">שלוש לחיצות עד המשימה:</span>
+    <span class="tp"><u>1</u>בית · "עכשיו"</span><svg class="ic ar"><use href="#i-arrow"/></svg>
+    <span class="tp"><u>2</u>סליידר מועקה</span><svg class="ic ar"><use href="#i-arrow"/></svg>
+    <span class="tp"><u>3</u>בחירת אורך</span><svg class="ic ar"><use href="#i-arrow"/></svg>
+    <span class="tp" style="color:var(--t-d)"><svg class="ic"><use href="#i-play"/></svg>משימה</span>
+    <span class="small" style="margin-right:auto">עברית, RTL, טלפון בלבד (iOS + Android)</span>
+  </div>
+  <div class="uip st">
+    <div class="ui1 card"><span class="ico"><svg class="ic"><use href="#i-tap"/></svg></span><h3>בחירה אמיתית אחת לכל היותר</h3><p>המערכת בוחרת את המשימה; המשתמש בוחר רק אורך, בין שניים.</p></div>
+    <div class="ui1 card"><span class="ico"><svg class="ic"><use href="#i-doc"/></svg></span><h3>מסך אחד = שאלה אחת</h3><p>אין טפסים. שאלון של 5 פריטים הוא 5 מסכים שמתקדמים אוטומטית.</p></div>
+    <div class="ui1 card"><span class="ico"><svg class="ic"><use href="#i-scale"/></svg></span><h3>אין שיפוט</h3><p>לא ניקוד, לא "כל הכבוד", לא פרצופים, ולא אדום בקצה הגבוה של הסולם.</p></div>
+    <div class="ui1 card"><span class="ico"><svg class="ic"><use href="#i-chat"/></svg></span><h3>שפת יום-יום</h3><p>"מועקה", "איך את/ה מרגיש/ה". לא "חרדה", "דיכאון" או "סימפטום".</p></div>
+    <div class="ui1 card"><span class="ico"><svg class="ic"><use href="#i-leaf"/></svg></span><h3>שקט חזותי</h3><p>רקע בהיר ברוויות נמוכה, אלמנט בולט אחד במסך, בלי אנימציות מסיחות מחוץ למשימה.</p></div>
+    <div class="ui1 card"><span class="ico"><svg class="ic"><use href="#i-arrow"/></svg></span><h3>יציאה תמיד אפשרית</h3><p>אין מסך שכולא. נטישה היא נתון מחקרי, לא כישלון, ותמיד נרשמת.</p></div>
+    <div class="ui1 card"><span class="ico"><svg class="ic"><use href="#i-mute"/></svg></span><h3>משימה בלי צליל עדיין עובדת</h3><p>כשהטלפון מושתק, משפחות הצליל לא מוגרלות. המערכת בודקת, לא שואלת.</p></div>
+    <div class="ui1 card"><span class="ico"><svg class="ic"><use href="#i-x"/></svg></span><h3>בלי תפריטים</h3><p>אין תפריט תחתון ואין המבורגר. ניווט קדימה בזרימה, ואייקון הגדרות בבית.</p></div>
+  </div>
+</section>
+
+<!-- 17 · Screen map -->
+<section class="slide" id="screenmap" data-ch="4" data-bg="blue">
+  <p class="kick r"><span class="n">4.2</span>מפת המסכים</p>
+  <h2 class="h-l r" style="--d:1">הרשמה פעם אחת. <span class="tt">אחריה, כל פתיחה עוברת שמונה מסכים בסדר קבוע.</span></h2>
+  <div class="smap r" style="--d:2" id="smap">
+    <div class="lane"><span class="ln">הרשמה · ~3 דק׳</span><div class="row">
+      <button class="sn" data-s="0.1"><b>0.1</b><span>פתיחה</span></button><svg class="ic ar"><use href="#i-arrow"/></svg>
+      <button class="sn" data-s="0.2"><b>0.2</b><span>הסכמה</span></button><svg class="ic ar"><use href="#i-arrow"/></svg>
+      <button class="sn" data-s="0.3"><b>0.3</b><span>שאלון היכרות</span></button><svg class="ic ar"><use href="#i-arrow"/></svg>
+      <button class="sn" data-s="0.4"><b>0.4</b><span>ערכה ותזכורת</span></button>
+    </div></div>
+    <div class="lane"><span class="ln">ליבה · 3–7 דק׳</span><div class="row">
+      <button class="sn sel" data-s="1"><b>1</b><span>בית</span></button><svg class="ic ar"><use href="#i-arrow"/></svg>
+      <button class="sn" data-s="2"><b>2</b><span>לפני</span></button><svg class="ic ar"><use href="#i-arrow"/></svg>
+      <button class="sn" data-s="3"><b>3</b><span>אורך</span></button><svg class="ic ar"><use href="#i-arrow"/></svg>
+      <button class="sn" data-s="4"><b>4</b><span>פתיחת משימה</span></button><svg class="ic ar"><use href="#i-arrow"/></svg>
+      <button class="sn" data-s="5"><b>5</b><span>המשימה</span></button><svg class="ic ar"><use href="#i-arrow"/></svg>
+      <button class="sn" data-s="6"><b>6</b><span>מעבר</span></button><svg class="ic ar"><use href="#i-arrow"/></svg>
+      <button class="sn" data-s="7"><b>7</b><span>אחרי</span></button><svg class="ic ar"><use href="#i-arrow"/></svg>
+      <button class="sn" data-s="8"><b>8</b><span>סגירה</span></button>
+    </div></div>
+    <div class="lane"><span class="ln">צדדיים · בתנאי</span><div class="row">
+      <button class="sn side" data-s="w"><b>W</b><span>שבועי</span></button>
+      <button class="sn side" data-s="n"><b>N</b><span>תזכורת</span></button>
+      <button class="sn side" data-s="s"><b>S</b><span>רשת ביטחון</span></button>
+      <button class="sn side" data-s="g"><b>⚙</b><span>הגדרות</span></button>
+      <button class="sn side" data-s="h"><b>H</b><span>היסטוריה</span></button>
+    </div></div>
+  </div>
+  <div class="sinfo card r" style="--d:3" id="sinfo"></div>
+</section>
+
+<!-- 18 · Design system -->
+<section class="slide" id="design" data-ch="4" data-bg="teal">
+  <p class="kick r"><span class="n">4.3</span>מערכת העיצוב</p>
+  <div class="ds">
+    <div class="phone r" id="dsphone" style="--d:1" aria-hidden="true">
+      <div class="scr">
+        <div class="sbar"><span>9:41</span><span>●●● ▮</span></div>
+        <div class="v home sel">
+          <svg class="ic gear"><use href="#i-gear"/></svg>
+          <div class="nowb">עכשיו</div>
+          <div class="pgraph" data-graph="6:3,7:5,5:3,8:4,6:4,7:3"><span class="cap">השבוע</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="col" style="gap:18px">
+      <h2 class="h-l r" style="--d:1;font-size:44px">שלוש ערכות, חמישה תפקידים. <span class="tt">החלפת ערכה היא החלפת חמישה ערכים.</span></h2>
+      <div class="pals r" style="--d:2" id="pals">
+        <button class="pal sel" data-p="A"><div class="sw"><i style="background:#EEF3EC"></i><i style="background:#C9DCC4"></i><i style="background:#8FB39A"></i><i style="background:#2F3E34"></i><i style="background:#F4EFE8"></i></div><b>A · ירוק מרפא</b><small>ברירת מחדל. הראיות הרחבות ביותר; בטוח גם לחרדת תכונה גבוהה<span class="c" data-r="C3,C4"></span></small></button>
+        <button class="pal" data-p="B"><div class="sw"><i style="background:#EDF3F7"></i><i style="background:#C5D8E6"></i><i style="background:#7FA3BF"></i><i style="background:#2C3A47"></i><i style="background:#F4EFE8"></i></div><b>B · כחול שקט</b><small>רגיעה פיזיולוגית מהירה<span class="c" data-r="C5,C6"></span></small></button>
+        <button class="pal" data-p="C"><div class="sw"><i style="background:#EEF5F4"></i><i style="background:#BFDDD8"></i><i style="background:#7EB5AE"></i><i style="background:#2F3E34"></i><i style="background:#F4EFE8"></i></div><b>C · טורקיז-ירקרק</b><small>כחול-ירוק דורג בין הגוונים הנעימים ביותר<span class="c" data-r="C1"></span></small></button>
+      </div>
+      <div class="card r" style="--d:3;padding:18px 22px;display:flex;flex-direction:column;gap:14px">
+        <div class="hexes" id="hexes">
+          <div class="hx"><i data-k="bg"></i><b>#EEF3EC</b>bg · רקע כל המסכים</div>
+          <div class="hx"><i data-k="sf"></i><b>#C9DCC4</b>surface · כרטיסים, סליידר</div>
+          <div class="hx"><i data-k="ac"></i><b>#8FB39A</b>accent · כפתור, ידית, טיימר</div>
+          <div class="hx"><i data-k="tx"></i><b>#2F3E34</b>text · כל הטקסט</div>
+          <div class="hx"><i data-k="ne" style="background:#F4EFE8"></i><b>#F4EFE8</b>neutral · מעבר, גרף</div>
+        </div>
+        <div style="display:flex;gap:30px;flex-wrap:wrap;align-items:center">
+          <div class="stim"><b style="font-size:14px">פלטת גירויים, זהה לכל הערכות:</b><i style="background:#3B6EA8"></i><i style="background:#C97B3A"></i><i style="background:#7A5BA8"></i><i style="background:#8A95A5"></i></div>
+          <div class="typo"><span style="font-size:24px;font-weight:600">כותרת<small>24/600</small></span><span style="font-size:17px">גוף<small>17/400</small></span><span style="font-size:14px">משני<small>14/400</small></span></div>
+        </div>
+      </div>
+      <div class="srow r" style="--d:4;grid-template-columns:1fr 1fr">
+        <div class="note sand"><svg class="ic"><use href="#i-x"/></svg><span><b>אסור בכל הערכות:</b> אדום, כתום וצהוב רוויים, לבן טהור, שחור טהור, אפור קר. הסליידר צבוע ב-accent לכל אורכו.</span></div>
+        <div class="note"><svg class="ic"><use href="#i-eye"/></svg><span><b>מצב לילה:</b> אותם גוונים בבהירות הפוכה, רוויות עד 20%. בערכה B הגוון הכהה נוטה לירוק-כחול.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 19 · Onboarding -->
+<section class="slide" id="onboard" data-ch="4" data-bg="mist">
+  <p class="kick r"><span class="n">4.4</span>זרימת ההרשמה · 11 מסכים</p>
+  <div class="cols" style="gap:46px">
+    <div class="col" style="gap:14px">
+      <h2 class="h-l r" style="--d:1;font-size:44px">אין חשבון, אין אימייל, אין סיסמה. <span class="tt">הזהות מופקת מההתקנה.</span></h2>
+      <div class="steps r" style="--d:2" id="obsteps">
+        <button class="stp sel" data-o="0"><span class="nm">0.1</span><span><b>פתיחה</b><small>משפט אחד מסביר מה זה, ומיד: "לא טיפול. לא תחליף לטיפול."</small></span></button>
+        <button class="stp" data-o="1"><span class="nm">0.2</span><span><b>הסכמה</b><small>שני מתגים נפרדים: תנאי שימוש (חובה) ושימוש מחקרי (רשות)</small></span></button>
+        <button class="stp" data-o="2"><span class="nm">0.3a</span><span><b>איך זה מרגיש</b><small>כובד כללי · דאגה · מחשבה שחוזרת · זיכרון שחוזר</small></span></button>
+        <button class="stp" data-o="3"><span class="nm">0.3b</span><span><b>מה נוח לך</b><small>לראות · לשמוע · להרגיש בידיים. ועוד 4 מסכים, חלקם רשות</small></span></button>
+        <button class="stp" data-o="4"><span class="nm">0.4a</span><span><b>איזה צבע נעים לך?</b><small>שלושה ריבועים בלי שם. לחיצה צובעת את כל המסך מיד</small></span></button>
+        <button class="stp" data-o="5"><span class="nm">0.4b</span><span><b>תזכורת</b><small>הרשאת התראות רק אחרי "סיימתי". ומשם ישר לבית</small></span></button>
+      </div>
+    </div>
+    <div class="phone r" id="obphone" style="--d:2">
+      <div class="scr">
+        <div class="sbar"><span>9:41</span><span>●●● ▮</span></div>
+        <div class="v sel" data-o="0" style="align-items:center;text-align:center">
+          <div class="nowb" style="width:110px;height:110px;margin-top:90px;font-size:0;pointer-events:none"></div>
+          <p class="q" style="margin-top:56px">כשמעיק, משימה קצרה שתופסת את הראש. כמה דקות, ובודקים אם זה עזר.</p>
+          <p class="sub">לא טיפול. לא תחליף לטיפול.</p>
+          <button class="pbtn" data-next>התחל</button>
+        </div>
+        <div class="v" data-o="1">
+          <p class="q">שני דברים לפני שמתחילים.</p>
+          <div class="pcards" style="gap:14px">
+            <label class="pcard" style="justify-content:space-between;gap:10px;min-height:76px;font-size:15px"><span>קראתי ואני מסכים/ה לתנאי השימוש ולמדיניות הפרטיות</span><input type="checkbox" id="ob-c1" style="width:22px;height:22px;accent-color:var(--ac);flex:none"></label>
+            <label class="pcard" style="justify-content:space-between;gap:10px;min-height:76px;font-size:15px;flex-wrap:wrap"><span>אפשר להשתמש בנתונים שלי, בלי שום פרט מזהה, למחקר<br><small style="opacity:.7">אפשר לשנות בהגדרות בכל רגע.</small></span><input type="checkbox" id="ob-c2" style="width:22px;height:22px;accent-color:var(--ac);flex:none"></label>
+          </div>
+          <button class="pbtn" data-next id="ob-cont" disabled>המשך</button>
+        </div>
+        <div class="v" data-o="2">
+          <div class="pbar"><i style="width:18%"></i></div>
+          <p class="q">כשמעיק לך, זה בדרך כלל מרגיש כמו…</p>
+          <div class="pcards multi"><button class="pcard">כובד כללי</button><button class="pcard">דאגה על משהו</button><button class="pcard">מחשבה שחוזרת</button><button class="pcard">זיכרון שחוזר</button></div>
+          <button class="pbtn" data-next>המשך</button>
+        </div>
+        <div class="v" data-o="3">
+          <div class="pbar"><i style="width:36%"></i></div>
+          <p class="q">מה נוח לך?</p>
+          <div class="pcards multi"><button class="pcard">משהו לראות</button><button class="pcard">משהו לשמוע</button><button class="pcard">משהו להרגיש בידיים</button></div>
+          <button class="pbtn" data-next>המשך</button>
+        </div>
+        <div class="v" data-o="4">
+          <div class="pbar"><i style="width:82%"></i></div>
+          <p class="q">איזה צבע נעים לך?</p>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:40px" id="obpal">
+            <button aria-label="ערכה A" data-p="A" style="aspect-ratio:1;border-radius:16px;background:#EEF3EC;border:2px solid #8FB39A;display:grid;place-items:center;cursor:pointer"><i style="width:30px;height:30px;border-radius:50%;background:#8FB39A"></i></button>
+            <button aria-label="ערכה B" data-p="B" style="aspect-ratio:1;border-radius:16px;background:#EDF3F7;border:2px solid transparent;display:grid;place-items:center;cursor:pointer;box-shadow:inset 0 0 0 1px rgba(0,0,0,.06)"><i style="width:30px;height:30px;border-radius:50%;background:#7FA3BF"></i></button>
+            <button aria-label="ערכה C" data-p="C" style="aspect-ratio:1;border-radius:16px;background:#EEF5F4;border:2px solid transparent;display:grid;place-items:center;cursor:pointer;box-shadow:inset 0 0 0 1px rgba(0,0,0,.06)"><i style="width:30px;height:30px;border-radius:50%;background:#7EB5AE"></i></button>
+          </div>
+          <p class="sub" style="text-align:center;margin-top:16px">אפשר לשנות אחר כך.</p>
+          <button class="pbtn" data-next>המשך</button>
+        </div>
+        <div class="v" data-o="5">
+          <div class="pbar"><i style="width:100%"></i></div>
+          <p class="q">להזכיר לך פעם ביום?</p>
+          <div style="margin:54px auto 0;display:flex;gap:6px;align-items:center;font-family:var(--f-d);font-size:46px;font-weight:500;direction:ltr"><span style="padding:4px 14px;border-radius:14px;background:var(--sf)">20</span>:<span style="padding:4px 14px;border-radius:14px;background:var(--sf)">00</span></div>
+          <button class="pbtn" data-next>סיימתי</button>
+          <button class="tbtn">בלי תזכורת</button>
+        </div>
+      </div>
+    </div>
+    <div class="col r" style="--d:3;max-width:330px;gap:14px">
+      <div class="rec"><div class="rec-h"><span>נרשם בהרשמה</span><span>profile</span></div><div id="obrec"></div></div>
+      <div class="note"><svg class="ic"><use href="#i-info"/></svg><span>פס התקדמות דק מ-0.3 ואילך. <b>אין מסך "הכל מוכן"</b>: אחרי 0.4b עוברים ישר לבית.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 20 · Live core demo -->
+<section class="slide" id="demo" data-ch="4" data-bg="green">
+  <div class="cols" style="gap:40px;align-items:center">
+    <div class="col" style="gap:12px;max-width:430px">
+      <p class="kick r"><span class="n">4.5</span>זרימת הליבה · הדגמה חיה</p>
+      <h2 class="h-l r" style="--d:1;font-size:40px">נסו בעצמכם: <span class="tt">מהבית ועד הגרף, 3–7 דקות.</span></h2>
+      <div class="steps r" style="--d:2" id="demosteps">
+        <button class="stp sel" data-k="0"><span class="nm">1</span><span><b>בית</b><small>כפתור אחד. בלי כותרת, ברכה או תאריך</small></span></button>
+        <button class="stp" data-k="1"><span class="nm">2</span><span><b>לפני</b><small>מועקה 0–10 ו-Affect Grid. אי אפשר לדלג</small></span></button>
+        <button class="stp" data-k="3"><span class="nm">3</span><span><b>אורך</b><small>שני כרטיסים. המשימה עדיין לא נחשפת</small></span></button>
+        <button class="stp" data-k="4"><span class="nm">4–5</span><span><b>המשימה</b><small>טיימר טבעת, בלי ניקוד. יציאה בלי דיאלוג</small></span></button>
+        <button class="stp" data-k="6"><span class="nm">6</span><span><b>מעבר</b><small>2 שניות ריקות, כדי לנתק את המדידה מהרגע האחרון</small></span></button>
+        <button class="stp" data-k="7"><span class="nm">7</span><span><b>אחרי</b><small>5 מסכים, שאלה בכל אחד. "דלג" מ-7c</small></span></button>
+        <button class="stp" data-k="12"><span class="nm">8</span><span><b>סגירה</b><small>"לפני: 7 · אחרי: 4". בלי פרשנות, בלי "יופי"</small></span></button>
+      </div>
+    </div>
+    <div class="phone r" id="dphone" style="--d:2">
+      <div class="scr">
+        <div class="sbar"><span>9:41</span><span>●●● ▮</span></div>
+        <!-- 0 home -->
+        <div class="v home sel" data-k="0">
+          <svg class="ic gear"><use href="#i-gear"/></svg>
+          <button class="nowb" data-act="start">עכשיו</button>
+          <div class="pgraph" id="dgraph"><span class="cap">השבוע</span></div>
+        </div>
+        <!-- 1 suds pre -->
+        <div class="v" data-k="1">
+          <p class="q">כמה מעיק עכשיו?</p>
+          <div class="suds"><div class="val" id="sudsPreV">5</div><input type="range" min="0" max="10" value="5" id="sudsPre" aria-label="כמה מעיק עכשיו"><div class="ends"><span>בכלל לא</span><span>הכי חזק שאפשר</span></div></div>
+          <button class="pbtn" data-act="next">המשך</button>
+        </div>
+        <!-- 2 grid pre -->
+        <div class="v" data-k="2">
+          <p class="q">ואיך זה מרגיש?</p>
+          <div class="agrid" id="gridPre"><span class="lb t">ערני</span><span class="lb b">רפוי</span><span class="lb rr">לא נעים</span><span class="lb ll">נעים</span><i class="dot" style="left:50%;top:50%"></i></div>
+          <button class="pbtn" data-act="next" id="gridPreBtn" disabled>המשך</button>
+        </div>
+        <!-- 3 length -->
+        <div class="v" data-k="3">
+          <p class="q">כמה זמן יש לך?</p>
+          <div class="pcards" style="margin-top:40px"><button class="pcard" data-act="len" data-len="2" style="height:96px;font-size:20px;justify-content:center">2 דקות</button><button class="pcard" data-act="len" data-len="4" style="height:96px;font-size:20px;justify-content:center">4 דקות</button></div>
+          <p class="sub" style="text-align:center;margin-top:auto">בהדגמה המשימה מקוצרת ל-30 שניות</p>
+        </div>
+        <!-- 4 task intro -->
+        <div class="v" data-k="4">
+          <p class="q" style="text-align:center">מעקב מטרות</p>
+          <p class="sub" style="text-align:center">עקוב/י אחרי העיגולים הכחולים.</p>
+          <div class="arena" style="margin-top:28px;width:78%;align-self:center"><canvas id="introcv" width="500" height="500"></canvas></div>
+          <button class="pbtn" data-act="task">התחל</button>
+          <button class="tbtn" data-act="home">לא עכשיו</button>
+        </div>
+        <!-- 5 task -->
+        <div class="v taskv" data-k="5">
+          <div class="tbar"><svg class="tring" viewBox="0 0 32 32"><circle class="bgc" cx="16" cy="16" r="13"/><circle class="fgc" id="tfg" cx="16" cy="16" r="13" stroke-dasharray="81.7" stroke-dashoffset="0"/></svg><button class="xb" data-act="abandon" aria-label="יציאה"><svg class="ic"><use href="#i-x"/></svg></button></div>
+          <div class="arena"><canvas id="taskcv" width="600" height="600" aria-label="משימת מעקב מטרות: לחצו על העיגולים שהיו כחולים"></canvas></div>
+        </div>
+        <!-- 6 transition -->
+        <div class="v blank" data-k="6"></div>
+        <!-- 7 suds post -->
+        <div class="v" data-k="7">
+          <div class="prog"><i class="on"></i><i></i><i></i><i></i><i></i></div>
+          <p class="q">ועכשיו, כמה מעיק?</p>
+          <div class="suds"><div class="val" id="sudsPostV">5</div><input type="range" min="0" max="10" value="5" id="sudsPost" aria-label="ועכשיו כמה מעיק"><div class="ends"><span>בכלל לא</span><span>הכי חזק שאפשר</span></div></div>
+          <button class="pbtn" data-act="next">המשך</button>
+        </div>
+        <!-- 8 grid post -->
+        <div class="v" data-k="8">
+          <div class="prog"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div>
+          <p class="q">ואיך זה מרגיש?</p>
+          <div class="agrid" id="gridPost"><span class="lb t">ערני</span><span class="lb b">רפוי</span><span class="lb rr">לא נעים</span><span class="lb ll">נעים</span><i class="dot" style="left:50%;top:50%"></i></div>
+          <button class="pbtn" data-act="next">המשך</button>
+        </div>
+        <!-- 9 better -->
+        <div class="v" data-k="9">
+          <div class="prog"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+          <p class="q">מרגיש/ה טוב יותר?</p>
+          <div class="pcards"><button class="pcard" data-act="pick" data-f="better" data-v="yes">כן</button><button class="pcard" data-act="pick" data-f="better" data-v="bit">קצת</button><button class="pcard" data-act="pick" data-f="better" data-v="no">לא</button></div>
+          <button class="tbtn" data-act="skip" style="margin-top:auto">דלג על השאר</button>
+        </div>
+        <!-- 10 prefer -->
+        <div class="v" data-k="10">
+          <div class="prog"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p class="q">מה היית מעדיף/ה לעשות עכשיו?</p>
+          <div class="pcards"><button class="pcard" data-act="pick" data-f="prefer_now" data-v="back">לחזור למה שעשיתי</button><button class="pcard" data-act="pick" data-f="prefer_now" data-v="another">עוד משימה</button><button class="pcard" data-act="pick" data-f="prefer_now" data-v="other">משהו אחר</button><button class="pcard" data-act="pick" data-f="prefer_now" data-v="nothing">כלום</button></div>
+          <button class="tbtn" data-act="skip" style="margin-top:auto">דלג על השאר</button>
+        </div>
+        <!-- 11 difficulty -->
+        <div class="v" data-k="11">
+          <div class="prog"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p class="q">כמה זה היה קשה?</p>
+          <div style="display:flex;justify-content:space-between;margin-top:60px;direction:rtl" id="diffrow"><button class="pcard" data-act="pick" data-f="difficulty" data-v="1" style="width:46px;height:46px;min-height:0;border-radius:50%;padding:0;justify-content:center" aria-label="1">1</button><button class="pcard" data-act="pick" data-f="difficulty" data-v="2" style="width:46px;height:46px;min-height:0;border-radius:50%;padding:0;justify-content:center" aria-label="2">2</button><button class="pcard" data-act="pick" data-f="difficulty" data-v="3" style="width:46px;height:46px;min-height:0;border-radius:50%;padding:0;justify-content:center" aria-label="3">3</button><button class="pcard" data-act="pick" data-f="difficulty" data-v="4" style="width:46px;height:46px;min-height:0;border-radius:50%;padding:0;justify-content:center" aria-label="4">4</button><button class="pcard" data-act="pick" data-f="difficulty" data-v="5" style="width:46px;height:46px;min-height:0;border-radius:50%;padding:0;justify-content:center" aria-label="5">5</button></div>
+          <div class="ends" style="display:flex;justify-content:space-between;font-size:13px;opacity:.7;margin-top:10px"><span>קל</span><span>קשה</span></div>
+          <button class="tbtn" data-act="skip" style="margin-top:auto">דלג על השאר</button>
+        </div>
+        <!-- 12 closing -->
+        <div class="v" data-k="12" style="align-items:center;text-align:center">
+          <p class="q" id="closeLine" style="margin-top:110px;font-size:24px">לפני: 7 · אחרי: 4</p>
+          <div class="pgraph" id="cgraph" style="margin-top:30px;height:150px"><span class="cap">השבוע</span></div>
+          <button class="pbtn" data-act="home">סיימתי</button>
+        </div>
+      </div>
+    </div>
+    <div class="col r" style="--d:3;gap:12px;max-width:360px">
+      <div class="rec"><div class="rec-h"><span>רשומת הסשן נבנית בזמן אמת</span><span id="recstat">● record</span></div><div id="drec"></div></div>
+      <div class="fict"><svg class="ic"><use href="#i-info"/></svg><span><b>המשימה בהדגמה הומצאה לצורך המצגת</b> ומקוצרת ל-30 שניות. המשימות באפליקציה יתוכננו על בסיס מחקרים וספרות מדעית בתחום.</span></div>
+      <button class="btn ghost sm" id="dreset" style="align-self:flex-start"><svg class="ic"><use href="#i-redo"/></svg>התחלה מחדש</button>
+    </div>
+  </div>
+</section>
+
+<!-- 21 · Task screens -->
+<section class="slide" id="tasks" data-ch="4" data-bg="blue">
+  <p class="kick r"><span class="n">4.6</span>מסכי המשימות</p>
+  <h2 class="h-l r" style="--d:1;font-size:44px">אותה תבנית לכל משימה. <span class="tt">בתוך המשימה אין טקסט.</span></h2>
+  <div class="tgrid st" id="tgrid">
+    <div class="tg card"><div class="stage"><canvas width="300" height="300" data-anim="maze"></canvas></div><b><u>F1</u>מבוך</b><div class="ins">"הגע/י לנקודה הבוהקת. הצליל מספר כמה קרוב הקיר."</div><p>רמה 3: מסך כהה, צליל בלבד.</p></div>
+    <div class="tg card"><div class="stage"><canvas width="300" height="300" data-anim="sound"></canvas></div><b><u>F2</u>צליל נע</b><div class="ins">"הקש/י על המסך במקום שממנו מגיע הצליל."</div><p>עיגול קטן מופיע במקום האמיתי לשנייה.</p></div>
+    <div class="tg card"><div class="stage"><canvas width="300" height="300" data-anim="music"></canvas></div><b><u>F3</u>מוזיקה ברטט</b><div class="ins">"הקש/י כשהקצב משתנה."</div><p>עיגול שנושם עם הקצב, רטט מסונכרן כל הזמן.</p></div>
+    <div class="tg card"><div class="stage"><canvas width="300" height="300" data-anim="map"></canvas></div><b><u>F4</u>מפה שנעלמת</b><div class="ins">"זכור/י איפה כל דבר."</div><p>רמה 3: המפה חוזרת מסובבת ב-90°.</p></div>
+    <div class="tg card"><div class="stage"><canvas width="300" height="300" data-anim="mot"></canvas></div><b><u>F5</u>מעקב מטרות</b><div class="ins">"עקוב/י אחרי העיגולים הכחולים."</div><p>מטרות נבדלות גם בצורה, לא רק בצבע.</p></div>
+    <div class="tg card"><div class="stage"><canvas width="300" height="300" data-anim="rhythm"></canvas></div><b><u>F6</u>קצב בלי צליל</b><div class="ins">"הקש/י עם הקצב. כשהוא נפסק, תמשיכ/י."</div><p>רמה 3: הצליל נפסק לפרקים הולכים וגדלים.</p></div>
+  </div>
+  <div class="rules4 st">
+    <div><b>אין משוב שלילי בולט.</b> טעות = הפריט חוזר למקומו. בלי צליל שגיאה, בלי אדום, בלי רעידה.</div>
+    <div><b>כיוונון קושי בלתי נראה</b>, משתנה בין סיבובים ולא באמצע.</div>
+    <div><b>הטיימר מסיים באמצע סיבוב.</b> אין "עוד רגע" ואין השלמת סיבוב.</div>
+    <div><b>יד אחת, אוריינטציה אנכית.</b> רטט 10ms לכל נגיעה, בלי הבחנה בין נכון ללא נכון.</div>
+  </div>
+  <div class="fict r" style="--d:6"><svg class="ic"><use href="#i-info"/></svg><span><b>האנימציות והניסוחים הם דוגמאות שהומצאו לצורך המצגת.</b> תוכן המשימות האמיתיות ייקבע לפי מחקרים וספרות מדעית בתחום.</span></div>
+</section>
+
+<!-- 22 · Secondary screens -->
+<section class="slide" id="secondary" data-ch="4" data-bg="teal">
+  <p class="kick r"><span class="n">4.7</span>מסכים משניים</p>
+  <h2 class="h-l r" style="--d:1;font-size:44px">מופיעים רק בתנאי. <span class="tt">ואף אחד מהם לא נותן ציון.</span></h2>
+  <div class="minis st">
+    <div class="mini"><div class="mph"><div class="in"><h4>איך היה השבוע בסך הכול?</h4><div class="ms"></div><div class="ends"><span>קשה</span><span>טוב</span></div><p style="margin-top:20px">האפליקציה עזרה השבוע?</p><div class="row5"><i></i><i></i><i class="f"></i><i></i><i></i></div><div class="mb" style="background:var(--a-sf)">דלג</div></div></div><p class="cap"><b>שבועי</b>ביום קבוע, ורק אם היו לפחות 3 סשנים בשבוע שעבר.</p></div>
+    <div class="mini"><div class="mph"><div class="in"><h4>נראה שהתקופה הזו קשה.</h4><p>האפליקציה הזו עוזרת לרגע, אבל היא לא מיועדת להחליף מישהו שאפשר לדבר איתו. אם מתאים לך, הנה כמה מקומות.</p><div class="mc"><b>ער"ן</b><span class="ltr">1201</span></div><div class="mc"><b>סה"ר</b><span>צ'אט</span></div><div class="mc"><b>קופת החולים שלך</b></div><div class="mb">הבנתי</div></div></div><p class="cap"><b>רשת ביטחון</b>מועקה 9–10 בשלוש פתיחות עוקבות, או עלייה של 2+ בממוצע לאורך שבועיים. פעם ב-30 יום לכל היותר.</p></div>
+    <div class="mini"><div class="mph"><div class="in"><h4>הגדרות</h4><div class="tl"><span>צבע</span><span style="display:flex;gap:4px"><i style="display:inline-block;width:16px;height:16px;border-radius:5px;background:#EEF3EC;outline:2px solid #8FB39A"></i><i style="display:inline-block;width:16px;height:16px;border-radius:5px;background:#EDF3F7"></i><i style="display:inline-block;width:16px;height:16px;border-radius:5px;background:#EEF5F4"></i></span></div><div class="tl"><span>תזכורת · 20:00</span><i class="tg2"></i></div><div class="tl"><span>מוזיקה</span><span>מחובר</span></div><div class="tl"><span>שליטה במבוך</span><span>גרירה</span></div><div class="tl"><span>הסכמה מחקרית</span><i class="tg2 off"></i></div><div class="tl"><span>הנתונים שלי</span><span>ייצוא · מחיקה</span></div><div class="tl" style="border:0"><span>על</span><span>מקורות</span></div></div></div><p class="cap"><b>הגדרות</b>מסך אחד בגלילה. ייצוא CSV ומחיקה מלאה, בלתי הפיכה.</p></div>
+    <div class="mini"><div class="mph"><div class="in"><h4 style="display:flex;justify-content:space-between">היסטוריה<span style="font-size:12px;font-weight:400;opacity:.7">שבוע · <b>חודש</b></span></h4><div class="pgraph" data-graph="7:4,6:5,8:5,5:3,7:3,6:2,8:6,6:4,5:3,7:4,6:3" style="height:200px;margin-top:10px"><span class="cap">החודש</span></div><div class="mc" style="margin-top:6px"><span>שלישי 21:40 · מפה שנעלמת</span><b class="ltr">7 → 4</b></div></div></div><p class="cap"><b>היסטוריה</b>בלי סטטיסטיקות, ממוצעים או "המשימה הכי טובה שלך". הפרשנות נשארת אצל המשתמש.</p></div>
+  </div>
+</section>
+
+<!-- 23 · States -->
+<section class="slide" id="states" data-ch="4" data-bg="sand">
+  <p class="kick r"><span class="n">4.8</span>התראות, מצבים ונגישות</p>
+  <h2 class="h-l r" style="--d:1;font-size:44px">כשמשהו לא עובד, <span class="tt">המשתמש לא צריך לדעת.</span></h2>
+  <div class="stg st">
+    <div class="stb card"><h3><svg class="ic"><use href="#i-bell"/></svg>התראה אחת בלבד</h3><span class="quote">רגע לראש?</span><ul><li>נוסח קבוע, בלי אמוג'י ובלי שם. פותחת ישר את מסך 2a.</li><li>אין התראות על רצפים או "לא ראינו אותך".</li><li>לא נשלחת אם היה סשן ב-6 השעות האחרונות.</li></ul></div>
+    <div class="stb card"><h3><svg class="ic"><use href="#i-wifi"/></svg>מצבי שגיאה</h3><ul><li><b>אין רשת:</b> הכל עובד, הרשומות נשלחות אחר כך.</li><li><b>מושתק או בלי אוזניות:</b> משפחות הצליל לא מוגרלות.</li><li><b>הרשאת מוזיקה בוטלה:</b> F3 לא מוגרלת.</li><li><b>המשימה קרסה:</b> חזרה לבית, הרשומה מסומנת error.</li><li><b>פתיחה כפולה בתוך דקה:</b> סשן חדש רגיל.</li></ul></div>
+    <div class="stb card"><h3><svg class="ic"><use href="#i-a11y"/></svg>נגישות וביצועים</h3><ul><li>ניגודיות 4.5:1 לפחות, טקסט עד פי 1.5.</li><li>קורא מסך: Affect Grid הופך לשני סליידרים, וההגרלה מוגבלת למשפחות הצליל והקצב.</li><li>פלטת הגירויים נבדקת לדוטרנופיה ופרוטנופיה.</li><li>פתיחה קרה עד 1.5 שנ׳, משימות ב-60fps.</li></ul></div>
+  </div>
+  <div class="note r" style="--d:5"><svg class="ic"><use href="#i-info"/></svg><span><b>מצבים ריקים:</b> בבית לפני הסשן הראשון, שורה אחת במקום הגרף: "כאן יופיע איך הרגשת לפני ואחרי." בסשן הראשון במסך הסגירה: "מכאן זה מתחיל."</span></div>
+</section>
+
+<!-- 24 · Not in the UI -->
+<section class="slide" id="notui" data-ch="4" data-bg="mist">
+  <p class="kick r"><span class="n">4.9</span>מה לא בממשק</p>
+  <h2 class="h-l r" style="--d:1;font-size:44px">כל אחת נראית כמו פיצ'ר חסר. <span class="tt">כולן החלטות מכוונות.</span></h2>
+  <div class="nots st">
+    <div class="nt card"><span class="x"><svg class="ic"><use href="#i-x"/></svg></span><div><b>חשבון משתמש והתחברות</b><p>מידע רגיש במיוחד; הזהות מההתקנה מספיקה.</p></div></div>
+    <div class="nt card"><span class="x"><svg class="ic"><use href="#i-x"/></svg></span><div><b>בחירת משימה</b><p>שוברת את ההקצאה האקראית.</p></div></div>
+    <div class="nt card"><span class="x"><svg class="ic"><use href="#i-x"/></svg></span><div><b>ניקוד, רצפים, תגים, דירוגים</b><p>מעבירים את הקשב לביצוע במקום להרגשה, ומייצרים לחץ.</p></div></div>
+    <div class="nt card"><span class="x"><svg class="ic"><use href="#i-x"/></svg></span><div><b>מסך תוצאה אחרי משימה</b><p>התשובה לשאלון צריכה להיות על המצב, לא על ההצלחה.</p></div></div>
+    <div class="nt card"><span class="x"><svg class="ic"><use href="#i-x"/></svg></span><div><b>"עוד סיבוב"</b><p>משימה שמושכת פנימה ללא סוף היא בדיוק מה שהאפליקציה מחליפה.</p></div></div>
+    <div class="nt card"><span class="x"><svg class="ic"><use href="#i-x"/></svg></span><div><b>שיתוף חברתי</b><p>הגרף הוא מידע רגיש, והשיתוף מחזיר את הפיד.</p></div></div>
+    <div class="nt card"><span class="x"><svg class="ic"><use href="#i-x"/></svg></span><div><b>ערכה רביעית או מותאמת</b><p>שלב שני, אחרי שיש נתונים.</p></div></div>
+    <div class="nt card"><span class="x"><svg class="ic"><use href="#i-x"/></svg></span><div><b>מילים קליניות, שאלונים מתוקפים</b><p>רק בזרוע המחקר, לא באפליקציה.</p></div></div>
+    <div class="nt card"><span class="x"><svg class="ic"><use href="#i-x"/></svg></span><div><b>טיפים ופסיכו-חינוך</b><p>רכיב פסיכולוגי מערבב את הניסוי.</p></div></div>
+  </div>
+</section>
+
+<!-- ═════════ 5 · נתונים, הקצאה וניתוח ═════════ -->
+
+<!-- 25 · Record -->
+<section class="slide" id="record" data-ch="5" data-bg="blue">
+  <p class="kick r"><span class="n">5.1</span>לולאת הלמידה</p>
+  <h2 class="h-l r" style="--d:1">כל משימה שהושלמה היא רשומה אחת. <span class="tt">מצבור הרשומות הוא הנכס המרכזי.</span></h2>
+  <div class="cols" style="align-items:flex-start;gap:36px">
+    <div class="fields" style="flex:1.6">
+      <div class="fl" style="--i:0"><code>user_id</code><span>מזהה אנונימי, נפרד מכל פרט מזהה</span></div>
+      <div class="fl" style="--i:1"><code>profile</code><span>סוג מועקה טיפוסי והעדפות ערוץ</span></div>
+      <div class="fl" style="--i:2"><code>family · level</code><span>F1–F7 · רמה 1–3</span></div>
+      <div class="fl" style="--i:3"><code>mechanism · length</code><span>מנגנון קושי · 2/4/6 דקות</span></div>
+      <div class="fl" style="--i:4"><code>assignment</code><span>random / model</span></div>
+      <div class="fl" style="--i:5"><code>palette</code><span>A / B / C, הערכה הפעילה בסשן</span></div>
+      <div class="fl main" style="--i:6"><code>suds_pre · suds_post</code><span>0–10 · המדד הראשי</span></div>
+      <div class="fl" style="--i:7"><code>grid_pre · grid_post</code><span>ערכיות ועוררות</span></div>
+      <div class="fl" style="--i:8"><code>better · prefer_now · difficulty</code><span>3 ערכים · 4 ערכים · 1–5</span></div>
+      <div class="fl" style="--i:9"><code>accuracy · mean_rt · adjustments</code><span>ביצוע אובייקטיבי</span></div>
+      <div class="fl" style="--i:10"><code>abandoned_at</code><span>שניות, או ריק</span></div>
+      <div class="fl" style="--i:11"><code>wrapper · started_at</code><span>ז'אנר מוזיקה, אורך שנבחר, זמן</span></div>
+    </div>
+    <div class="col r" style="--d:3;gap:14px">
+      <div class="scard card"><span class="tag">התאמה אישית</span><p>מודלי למידת מכונה לומדים, לכל משתמש בנפרד, אילו משימות מביאות לשיפור הגדול ביותר בהינתן מצב הפתיחה שלו (contextual bandit).</p></div>
+      <div class="scard card"><span class="tag">ידע כללי</span><p>ברמת האוכלוסייה, אותם נתונים עונים על השאלות שהמחקר השאיר פתוחות. כיוון שההקצאה הראשונית אקראית, התשובות אינן מוטות על ידי העדפות המשתמשים.</p></div>
+      <div class="note sand"><svg class="ic"><use href="#i-info"/></svg><span>השיפור מהתאמה אינו מובן מאליו: בניסוי על 1,121 מבוגרים, התאמה בלמידת חיזוק לא עלתה על הודעות אקראיות<span class="c" data-r="23"></span>. לכן ההשוואה רציפה.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 26 · Allocation -->
+<section class="slide" id="allocation" data-ch="5" data-bg="green">
+  <p class="kick r"><span class="n">5.2</span>הקצאה</p>
+  <h2 class="h-l r" style="--d:1">ניסוי מיקרו-אקראי בכל פתיחה. <span class="tt">ההטיה ידועה, נרשמת, וניתנת לתיקון.</span></h2>
+  <div class="alloc">
+    <div class="bias card r" style="--d:2">
+      <span class="h-s">הטיית רמת הקושי לפי המועקה לפני</span>
+      <div class="rng" style="grid-template-columns:120px 1fr 54px"><label for="biasS">מועקה (SUDS)</label><input type="range" id="biasS" min="0" max="10" value="3"><b id="biasV">3</b></div>
+      <div class="lvbars" id="lvbars">
+        <div class="lvb"><span>רמה 1</span><span class="bar"><i></i></span><b></b></div>
+        <div class="lvb"><span>רמה 2</span><span class="bar"><i></i></span><b></b></div>
+        <div class="lvb"><span>רמה 3</span><span class="bar"><i></i></span><b></b></div>
+      </div>
+      <p class="small">0–4: אחיד, ⅓ לכל רמה · 5–7: 45/35/20 · 8–10: 60/30/10. בשיא המועקה המשימה המוצעת קלה יותר, כי הנטייה להימנע ממאמץ מתחזקת<span class="c" data-r="19,22"></span>.</p>
+    </div>
+    <div class="phase card r" style="--d:3">
+      <span class="h-s">מהגרלה למודל מותאם</span>
+      <div class="rng" style="grid-template-columns:120px 1fr 54px"><label for="recN">רשומות למשתמש</label><input type="range" id="recN" min="0" max="40" value="8"><b id="recV">8</b></div>
+      <div class="dots20" id="dots20"></div>
+      <div class="split"><div class="rd" id="spR" style="flex:100">אקראי 100%</div><div class="md" id="spM" style="flex:0"></div></div>
+      <p class="small">בכל פתיחה המערכת מגרילה משפחה, רמה ואורך מתוך הקטגוריות שמתאימות להעדפות הערוץ<span class="c" data-r="21"></span>. אחרי 20 רשומות לפחות, 70% מההקצאות עוברות למודל מותאם ו-30% נשארות אקראיות, כדי להשוות ביניהם לאורך זמן<span class="c" data-r="23"></span>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 27 · Analysis -->
+<section class="slide" id="analysis" data-ch="5" data-bg="teal">
+  <p class="kick r"><span class="n">5.3</span>שאלות הניתוח, לפי סדר</p>
+  <h2 class="h-l r" style="--d:1;font-size:44px">שמונה שאלות. <span class="tt">שש מהן מקבלות תשובה סיבתית בזכות ההגרלה.</span></h2>
+  <div class="aq st">
+    <div class="aqi causal"><u>1</u><div><b>האם יש ירידה במועקה בתוך סשן?</b><small>מודל מעורב: <code>suds_post ~ suds_pre</code>, אפקט אקראי למשתמש</small></div></div>
+    <div class="aqi causal"><u>2</u><div><b>האם משפחות נבדלות?</b><small><code>family × suds_pre</code>, השוואות זוגיות עם תיקון FDR</small></div></div>
+    <div class="aqi causal"><u>3</u><div><b>מה הקושי הנכון?</b><small><code>level × suds_pre</code>. השערה: U הפוכה שזזה שמאלה ככל שהמועקה גבוהה<span class="c" data-r="13"></span></small></div></div>
+    <div class="aqi causal"><u>4</u><div><b>האם הערוץ הרב-חושי מוסיף?</b><small>F1/F3/F6 מול אותו תחום בערוץ חזותי בלבד<span class="c" data-r="27"></span></small></div></div>
+    <div class="aqi causal"><u>5</u><div><b>האם סוג המועקה מנבא איזו משפחה עובדת?</b><small><code>profile × family</code></small></div></div>
+    <div class="aqi causal"><u>6</u><div><b>האם המודל המותאם מנצח את ההגרלה?</b><small><code>assignment × time</code>, בכל משתמש<span class="c" data-r="23"></span></small></div></div>
+    <div class="aqi"><u>7</u><div><b>האם האפקט מצטבר?</b><small><code>suds_pre</code> לאורך שבועות, מול שיעור השימוש<span class="c" data-r="18,25"></span></small></div></div>
+    <div class="aqi"><u>8</u><div><b>איזו ערכת צבעים נבחרת, ובאיזו הדלתא הגדולה ביותר?</b><small><code>palette × suds_pre</code>. הערכה היא בחירה, ולכן מתאמי בלבד</small></div></div>
+  </div>
+  <div class="srow st" style="grid-template-columns:1fr 1fr">
+    <div class="note mint"><svg class="ic"><use href="#i-users"/></svg><span><b>שאלות 1–4:</b> 50 משתמשים × 20 סשנים ≈ 1,000 רשומות.</span></div>
+    <div class="note"><svg class="ic"><use href="#i-users"/></svg><span><b>שאלות 5–8:</b> 300 משתמשים ומעלה.</span></div>
+  </div>
+</section>
+
+<!-- ═════════ 6 · גבולות ═════════ -->
+
+<!-- 28 · Limits -->
+<section class="slide" id="limits" data-ch="6" data-bg="sand">
+  <p class="kick r"><span class="n">6</span>גבולות, בטיחות ואתיקה</p>
+  <h2 class="h-l r" style="--d:1">כלי לרגע, לא טיפול. <span class="tt">ומתוכנן מהיסוד למידע רגיש.</span></h2>
+  <div class="sf st">
+    <div class="sfc card"><span class="ico"><svg class="ic"><use href="#i-heart"/></svg></span><h3>כלי לרגע</h3><p>משימה חד-פעמית הפחיתה חרדה מיד, אבל שבוע אחרי לא נמצא הבדל<span class="c" data-r="18"></span>. כשניתנה יום-יום לאורך שלושה שבועות, השיפור נשמר<span class="c" data-r="25"></span>. האם שימוש חוזר מצטבר היא שאלה פתוחה, והמערכת בנויה למדוד אותה.</p></div>
+    <div class="sfc card"><span class="ico"><svg class="ic"><use href="#i-hourglass"/></svg></span><h3>הימנעות ממאמץ</h3><p>הסיכון המרכזי הוא שהמשתמש לא יפתח את המשימה. אנשים בוחרים באפשרות הקלה<span class="c" data-r="19"></span>, ובמצוקה עוד יותר<span class="c" data-r="22"></span>. שיעור פתיחה ללא התחלה ונטישה נמדדים מהיום הראשון.</p></div>
+    <div class="sfc card"><span class="ico"><svg class="ic"><use href="#i-shield"/></svg></span><h3>לא מכשיר רפואי</h3><p>אין שאלוני סינון, אין ציוני חרדה או דיכאון, אין הבטחה להקלה במצב רפואי. קטגוריית רווחה כללית (wellness). שאלונים מתוקפים רק בקוהורט מחקר, באישור ועדת אתיקה.</p></div>
+    <div class="sfc card"><span class="ico"><svg class="ic"><use href="#i-lock"/></svg></span><h3>פרטיות</h3><p>תיקון 13 לחוק הגנת הפרטיות (אוגוסט 2025) מגדיר מידע על מצב נפשי כ"מידע בעל רגישות מיוחדת". הפרדה מלאה מפרטים מזהים, הסכמה מחקרית נפרדת, מחיקה מלאה, בלי שמות שירים ובלי מיקום.</p></div>
+    <div class="sfc card"><span class="ico"><svg class="ic"><use href="#i-life"/></svg></span><h3>רשת ביטחון בלי אבחון</h3><p>מצוקה חמורה חוזרת או החמרה לאורך זמן מציגות פעם אחת משאבי תמיכה חיצוניים. בלי ציון ובלי תווית. האפליקציה לא מתיימרת לאוכלוסייה קלינית.</p></div>
+    <div class="sfc card"><span class="ico"><svg class="ic"><use href="#i-scale"/></svg></span><h3>זהירות בהכללה</h3><p>ממצאי עמדי הם על גילאי 50–65 עם תלונות זיכרון, עם רכיב פסיכולוגי ומול קבוצת המתנה. מחקרי הצבע נעשו על תאורה וקירות, לא מסכים<span class="c" data-r="C7"></span>. הם מצדיקים היפותזה, לא מוכיחים אותה.</p></div>
+  </div>
+  <div class="note r" style="--d:7"><svg class="ic"><use href="#i-dice"/></svg><span><b>אפקט פלצבו וציפייה:</b> ירידה אחרי כל פעילות מובנית צפויה. ההקצאה האקראית בין משפחות ורמות היא מה שמפריד אפקט ספציפי מכללי. <b>עייפות מדידה:</b> אם שיעור המילוי יורד מ-80%, נשארים עם SUDS בלבד<span class="c" data-r="17"></span>.</span></div>
+</section>
+
+<!-- ═════════ 7 · שיתוף פעולה ═════════ -->
+
+<!-- 29 · Collaboration hero: the missing arm -->
+<section class="slide" id="collab" data-ch="7" data-bg="teal">
+  <p class="kick r"><span class="n">7.1</span>הצעה לשיתוף פעולה מחקרי</p>
+  <h2 class="h-l r" style="--d:1">האפליקציה היא <span class="tt">הזרוע שהמחקרים עצמם הצביעו עליה כחסרה.</span></h2>
+  <div class="arm">
+    <div class="armb card mix r" style="--d:2">
+      <span class="lbl">שני המחקרים שפורסמו ב-2025 · Scientific Reports · npj Digital Medicine</span>
+      <h3>משימה ורכיב טיפולי, יחד</h3>
+      <div class="blocks"><div class="blk task"><svg class="ic"><use href="#i-maze"/></svg>משימת ניווט רב-חושית</div><div class="blk psy"><svg class="ic"><use href="#i-leaf"/></svg>מיינדפולנס</div><div class="blk psy"><svg class="ic"><use href="#i-chat"/></svg>CBT</div></div>
+      <p class="q2">החוקרים כתבו שהמערך אינו מאפשר להפריד את התרומה של כל רכיב, והציעו זרועות ייעודיות במחקרי המשך<span class="c" data-r="24,25"></span>.</p>
+    </div>
+    <div class="armmid r" style="--d:3"><svg class="ic" viewBox="0 0 24 24"><use href="#i-arrow"/></svg>מבודדים<br>את המשימה</div>
+    <div class="armb card solo r" style="--d:4">
+      <span class="lbl" style="color:var(--t-d)">האפליקציה המוצעת</span>
+      <h3>משימה בלבד, בלי רכיב טיפולי</h3>
+      <div class="blocks"><div class="blk task"><svg class="ic"><use href="#i-maze"/></svg>משימה קוגניטיבית, מוגרלת מתוך משפחות</div></div>
+      <p class="q2"><b>היא בדיוק אותה זרוע.</b> בלי טיפים ובלי פסיכו-חינוך, כדי שהניסוי לא יתערבב. מה שנמדד הוא תרומת המשימה עצמה.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 30 · Three more gaps -->
+<section class="slide" id="collab-gaps" data-ch="7" data-bg="blue">
+  <p class="kick r"><span class="n">7.2</span>מעבר לבידוד המשימה</p>
+  <h2 class="h-l r" style="--d:1">שלושה פערים נוספים <span class="tt">שהממצאים הקיימים משאירים פתוחים.</span></h2>
+  <div class="gap3 st">
+    <div class="g3 card"><span class="h-s">אוכלוסייה כללית</span><div class="vs"><div class="was">גילאי 50–65 עם תלונות זיכרון</div><svg class="ic"><use href="#i-arrow"/></svg><div class="now">מבוגרים בכל גיל, במועקה יומיומית</div></div><p>מאפשר לבדוק עד כמה הממצאים מוכללים.</p></div>
+    <div class="g3 card"><span class="h-s">הרגע האמיתי</span><div class="vs"><div class="was">30 דקות ביום, תוכנית מובנית</div><svg class="ic"><use href="#i-arrow"/></svg><div class="now">משימה ברגע המועקה, בבחירה חופשית</div></div><p>מה קורה כשמציעים משימה ברגע עצמו, והאם אנשים בוחרים בה. שאלה שאף מחקר מעבדה לא יכול לענות עליה.</p></div>
+    <div class="g3 card"><span class="h-s">מה, באיזה קושי, על מה</span><div class="vs"><div class="was">מערך קבוע אחד</div><svg class="ic"><use href="#i-arrow"/></svg><div class="now">הגרלה בין משפחות ורמות קושי</div></div><p>תשובה סיבתית, לא מתאמית, לשאלה שהספרות משאירה פתוחה.</p></div>
+  </div>
+  <div class="note mint r" style="--d:5"><svg class="ic"><use href="#i-check"/></svg><span>הזרוע החדשה נבנית <b>כהמשך למחקרים הקיימים</b> ולא כמחקר נפרד: אותם כלים, אותם ימי מדידה, ואותה תדירות מעקב.</span></div>
+</section>
+
+<!-- 31 · Cohort protocol -->
+<section class="slide" id="cohort" data-ch="7" data-bg="green">
+  <p class="kick r"><span class="n">7.3</span>זרוע המחקר · קוהורט מתוקף</p>
+  <h2 class="h-l r" style="--d:1;font-size:44px">מדידה באותם כלים שהמעבדה משתמשת בהם, <span class="tt">כדי שהתוצאות יהיו ברות השוואה ישירה.</span></h2>
+  <div class="tl3 card r" style="--d:2">
+    <div class="axis">
+      <div class="ln"><i></i></div>
+      <span class="seg2" style="right:0;width:50%">ימים 1–21 · תוכנית יומית מול שימוש חופשי</span>
+      <span class="seg2" style="right:50%;width:50%">ימים 22–42 · מעקב 2× בשבוע<span class="c" data-r="25"></span></span>
+      <span class="mk" style="right:0;animation-delay:.4s"><i></i><b>יום 0</b><small>מדידת בסיס</small></span>
+      <span class="mk" style="right:50%;animation-delay:1.6s"><i></i><b>יום 21</b><small>סוף התוכנית</small></span>
+      <span class="mk" style="right:100%;animation-delay:2.8s"><i></i><b>יום 42</b><small>סוף המעקב</small></span>
+    </div>
+    <div class="tools">
+      <div class="tool"><b>CES-D</b><span>דיכאון</span></div>
+      <div class="tool"><b>PSS-10</b><span>לחץ</span></div>
+      <div class="tool"><b>STAI-S-5</b><span>חרדת מצב</span></div>
+      <div class="tool"><b>MHC-SF</b><span>רווחה</span></div>
+    </div>
+  </div>
+  <div class="tblw card r" style="--d:3">
+    <table class="tbl">
+      <tbody>
+        <tr><td style="width:190px">אוכלוסייה</td><td>60–80 מבוגרים, 18+, מועקה יומיומית לפי דיווח עצמי; ללא אבחנה פסיכיאטרית פעילה</td></tr>
+        <tr><td>מערך</td><td>שתי זרועות: תוכנית יומית (סשן של 15–20 דק׳ מהמשפחות F1/F3/F4, 21 יום) מול שימוש חופשי ברגע בלבד</td></tr>
+        <tr><td>מדידה רגעית</td><td>כמו באפליקציה: SUDS ו-Affect Grid לפני ואחרי כל סשן</td></tr>
+        <tr><td>היענות (יעד)</td><td>לפחות 80% מהמשתתפים משלימים 80% מהתוכנית (במחקר: 90%)<span class="c" data-r="24,25"></span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 32 · What the lab gets -->
+<section class="slide" id="gets" data-ch="7" data-bg="teal">
+  <p class="kick r"><span class="n">7.4</span>מה גוף מחקר מקבל</p>
+  <h2 class="h-l r" style="--d:1">תשתית ניסוי חיה, <span class="tt">בלי עלות פיתוח.</span></h2>
+  <div class="ben st">
+    <div class="bn card big"><span class="ico" style="width:64px;height:64px;border-radius:20px"><svg class="ic" style="width:30px;height:30px"><use href="#i-db"/></svg></span><div><h3 style="font-size:23px">נתונים אקולוגיים בקנה מידה</h3><p style="font-size:16px">אלפי משתמשים ומאות אלפי תצפיות בשנה, כל אחת עם מצב לפני ואחרי התערבות מוגדרת. מערך בסדר גודל שמעבדה אינה יכולה לייצר בעצמה.</p></div></div>
+    <div class="bn card"><span class="ico"><svg class="ic"><use href="#i-dice"/></svg></span><h3>סיבתיות, לא מתאם</h3><p>ההקצאה אקראית מהיום הראשון, ולכן הבדלים בין סוגי משימות ניתנים לייחוס למשימה עצמה.</p></div>
+    <div class="bn card"><span class="ico"><svg class="ic"><use href="#i-flask"/></svg></span><h3>תשתית ניסוי מוכנה</h3><p>להריץ השערות חדשות (משימות, רמות קושי, ערוצים חושיים) בלי לבנות מחדש כל פעם.</p></div>
+    <div class="bn card"><span class="ico"><svg class="ic"><use href="#i-paper"/></svg></span><h3>פרסומים משותפים</h3><p>שאלות הפער הן נושא לשניים–שלושה מאמרים ולעבודות תזה.</p></div>
+    <div class="bn card"><span class="ico"><svg class="ic"><use href="#i-globe"/></svg></span><h3>הרחבת ההכללה</h3><p>אותן משימות ואותם מדדים, באוכלוסייה רחבה ובהקשר יומיומי.</p></div>
+    <div class="bn card"><span class="ico"><svg class="ic"><use href="#i-coin"/></svg></span><h3>בסיס לבקשות מענק</h3><p>שיתוף אקדמיה–תעשייה עם פלטפורמה פעילה הוא מה שתוכניות מימון משותפות מחפשות.</p></div>
+    <div class="bn card"><span class="ico"><svg class="ic"><use href="#i-check"/></svg></span><h3>ללא עלות פיתוח</h3><p>הבנייה, התחזוקה וגיוס המשתמשים ממומנים ומבוצעים בצד החברה שמפתחת את האפליקציה.</p></div>
+  </div>
+</section>
+
+<!-- 33 · What we bring -->
+<section class="slide" id="bring" data-ch="7" data-bg="blue">
+  <p class="kick r"><span class="n">7.5</span>מה אנחנו מביאים</p>
+  <h2 class="h-l r" style="--d:1">מוצר, לא רעיון. <span class="tt">וצוות שיודע להביא אותו לאנשים.</span></h2>
+  <div class="bring st">
+    <div class="br card"><span class="ico"><svg class="ic"><use href="#i-doc"/></svg></span><h3>מוצר, לא רעיון</h3><p>אבסטרקט ואפיון מלאים על בסיס 37 מקורות: פרוטוקול מדידה, מערך הקצאה, רשומת סשן ושאלות ניתוח.</p></div>
+    <div class="br card"><span class="ico"><svg class="ic"><use href="#i-phone"/></svg></span><h3>פיתוח והפעלה</h3><p>קשר ישיר בע"מ בונה את האפליקציה, מתחזקת אותה ומפעילה את התשתית, כולל שכבת הפרטיות למידע רגיש.</p></div>
+    <div class="br card"><span class="ico"><svg class="ic"><use href="#i-users"/></svg></span><h3>גיוס משתמשים</h3><p>ניסיון של עשרות שנים בשיווק דיגיטלי ובפרסום. גיוס הקוהורט ושיווק האפליקציה בצד שלנו.</p></div>
+    <div class="br card"><span class="ico"><svg class="ic"><use href="#i-bolt"/></svg></span><h3>מהירות</h3><p>צוות קטן בלי שכבות אישור. מפיילוט של שתי משפחות משימות לאפליקציה פעילה בחודשים, לא בשנים.</p></div>
+    <div class="br card"><span class="ico"><svg class="ic"><use href="#i-spark"/></svg></span><h3>ניסיון מוצרי</h3><p>בניית אפליקציות וכלים דיגיטליים מבוססי AI, כולל למידת מכונה להתאמה אישית.</p></div>
+  </div>
+  <div class="split2 r" style="--d:6">
+    <div class="side2 card"><h3><svg class="ic" style="color:var(--t-d)"><use href="#i-flask"/></svg>המעבדה</h3><ul class="chips"><span>פיקוח מדעי</span><span>כלים מתוקפים</span><span>אישור ועדת אתיקה</span></ul></div>
+    <div class="side2 card"><h3><svg class="ic" style="color:var(--t-d)"><use href="#i-phone"/></svg>החברה</h3><ul class="chips"><span>הפלטפורמה</span><span>ההפעלה</span><span>הקוהורט</span><span>שכבת הפרטיות</span></ul></div>
+  </div>
+</section>
+
+<!-- 34 · Frameworks -->
+<section class="slide" id="frameworks" data-ch="7" data-bg="green">
+  <p class="kick r"><span class="n">7.6</span>מסגרות אפשריות לשיתוף פעולה</p>
+  <h2 class="h-l r" style="--d:1;font-size:44px">ארבע מסגרות שאינן מוציאות זו את זו. <span class="tt">מתחילים בראשונה ומתקדמים עם הנתונים.</span></h2>
+  <div class="fw r" style="--d:2;margin-top:24px" id="fw">
+    <div class="fwpath"><i></i><span>ככל שמצטברים נתונים</span><i></i></div>
+    <button class="fwb sel" data-w="0"><span class="st">מסגרת 1 · נקודת פתיחה</span><h3>שיתוף פעולה מחקרי</h3><div class="meter"><i class="on"></i><i></i><i></i><i></i></div><small>המעבדה: פיקוח, כלים, אתיקה. אנחנו: פלטפורמה, הפעלה, קוהורט.</small></button>
+    <button class="fwb" data-w="1"><span class="st">מסגרת 2</span><h3>מימון משותף</h3><div class="meter"><i class="on"></i><i class="on"></i><i></i><i></i></div><small>בקשה משותפת לתוכנית אקדמיה–תעשייה.</small></button>
+    <button class="fwb" data-w="2"><span class="st">מסגרת 3 · אחרי שיש נתונים</span><h3>רישוי לגוף מסחרי</h3><div class="meter"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div><small>רישוי המנוע והטקסונומיה, או גישה למאגר.</small></button>
+    <button class="fwb" data-w="3"><span class="st">מסגרת 4 · כשהערך הוכח</span><h3>פיתוח משותף או מיזם</h3><div class="meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div><small>חברה משותפת או הסכם פיתוח עם אבני דרך.</small></button>
+  </div>
+  <div class="fwd card r" style="--d:3" id="fwd"></div>
+  <div class="note sand r" style="--d:4"><svg class="ic"><use href="#i-lock"/></svg><span><b>בכל המסגרות:</b> סודיות לפני חשיפת פרטי המערך (NDA), וההסכם נחתם לפני שהמחקר מתחיל, לא אחריו. הפרטים ייקבעו בהסכם.</span></div>
+</section>
+
+<!-- 35 · First partner + value -->
+<section class="slide" id="partner" data-ch="7" data-bg="mist">
+  <div class="cols" style="gap:40px">
+    <div class="col">
+      <p class="kick r"><span class="n">7.7</span>שותף טבעי ראשון</p>
+      <h2 class="h-l r" style="--d:1">מכון ברוך איבצ'ר לחקר המוח, הקוגניציה והטכנולוגיה, <span class="tt">אוניברסיטת רייכמן.</span></h2>
+      <p class="p r" style="--d:2">מחקריו על התערבות דיגיטלית מבוססת משימה<span class="c" data-r="24,25,26"></span> הם הקרובים ביותר לרעיון המוצע. קוהורט המחקר יימדד גם בכלים שהמעבדה משתמשת בהם, כדי שהתוצאות יהיו ברות השוואה ישירה.</p>
+      <div class="note r" style="--d:3"><svg class="ic"><use href="#i-info"/></svg><span>מעמד החברה בפרויקט: <b>שותפה מחקרית, לא ספקית.</b> פרסומים בשם שני הצדדים, עם חלון סקירה הדדי.</span></div>
+    </div>
+    <div class="col r" style="--d:2;gap:14px">
+      <span class="h-s">מודל שמשרת את שלושת הצדדים</span>
+      <div class="scard card"><span class="tag">למשתמש</span><p>כלי חינמי או זול שמשתפר ככל שהוא משתמש בו.</p></div>
+      <div class="scard card"><span class="tag">לקהילה המדעית</span><p>נתונים, תשתית ניסויית ופרסומים משותפים. גישה לנתונים מותממים במסגרת הסכם שיתוף נתונים, אישור ועדת אתיקה והסכמה מדעת נפרדת.</p></div>
+      <div class="scard card"><span class="tag">לשותפים עסקיים</span><p>מוצר רווחה דיגיטלית שהנכס המרכזי שלו גדל עם כל משתמש. בשוק שבו מרבית האפליקציות נשענות על טענות ללא תשתית ראיות, מערכת שמייצרת את הראיות בעצמה היא בידול.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 36 · Close -->
+<section class="slide" id="close" data-ch="7" data-bg="teal">
+  <div class="cl">
+    <p class="kick r"><span class="n">∎</span>לסיכום</p>
+    <h2 class="h-xl r" style="--d:1;font-size:70px">מנגנון שהמחקר כבר הוכיח, <span class="tt">שאלות שרק מוצר חי יכול לענות עליהן.</span></h2>
+    <div class="close3 st">
+      <div><b>למשתמש</b>משימה קצרה ברגע הנכון, ויציאה עם תחושת שיפור במקום עוד גלילה.</div>
+      <div><b>למחקר</b>הזרוע החסרה: משימה בלבד, באוכלוסייה כללית, בהקצאה אקראית ובקנה מידה.</div>
+      <div><b>לשותפות</b>פלטפורמה, הפעלה וגיוס בצד שלנו. פיקוח, כלים ואתיקה בצד המעבדה.</div>
+    </div>
+    <div class="docs r" style="--d:5">
+      <span class="pill"><svg class="ic"><use href="#i-doc"/></svg>אבסטרקט ואפיון · גרסה 3</span>
+      <span class="pill"><svg class="ic"><use href="#i-doc"/></svg>אפיון ממשק משתמש</span>
+      <span class="pill"><svg class="ic"><use href="#i-doc"/></svg>הצעת שיתוף פעולה מחקרי</span>
+      <button class="btn sm" data-go="refs" style="margin-right:auto"><svg class="ic"><use href="#i-paper"/></svg>למקורות</button>
+    </div>
+    <p class="small r" style="--d:6">מצגת קונספט חסויה · Tanya Kronhaus · אוקטובר 2026. ההמחשות והמשימות במצגת הן דוגמאות ואינן נתוני מחקר.</p>
+  </div>
+</section>
+
+<!-- 37 · References -->
+<section class="slide" id="refs" data-ch="8" data-bg="mist">
+  <p class="kick r"><span class="n">REF</span>מקורות</p>
+  <div class="refs r" style="--d:1" id="refs-l"></div>
+  <p class="small r" style="--d:2">ה-DOI של [1]–[23] אומתו מול Crossref ב-21.10.2026. מקורות [24]–[28] ו-[C1]–[C9] נוספו ב-26–31.10.2026 מאתר המעבדה, מעמודי כתבי העת ומסקירת הצבע, וטרם אומתו מול Crossref.</p>
+</section>
+
+</div></div>
+
+<footer class="rail">
+  <div class="track" id="track"><div class="fill" id="fill"></div><div class="blip" id="blip"></div></div>
+</footer>
+
+<div id="cite" role="tooltip"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
