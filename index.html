@@ -18,6 +18,8 @@
   <symbol id="i-brain" viewBox="0 0 24 24"><path d="M9 4a3 3 0 0 0-3 3 3 3 0 0 0-2 5 3 3 0 0 0 2 5 3 3 0 0 0 6 1V5a2 2 0 0 0-3-1zM15 4a3 3 0 0 1 3 3 3 3 0 0 1 2 5 3 3 0 0 1-2 5 3 3 0 0 1-6 1"/><path d="M12 9h2M12 14h3"/></symbol>
   <symbol id="i-timer" viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M10 2h4M12 2v3"/></symbol>
   <symbol id="i-trend" viewBox="0 0 24 24"><path d="m3 17 6-6 4 4 8-8M15 7h6v6"/></symbol>
+  <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7 18a4 4 0 0 1-.6-8A6 6 0 0 1 18 9a4.5 4.5 0 0 1-.5 9z"/><path d="M8 21l1-2M12 21l1-2M16 21l1-2"/></symbol>
+  <symbol id="i-down2" viewBox="0 0 24 24"><path d="m3 7 6 6 4-4 8 8M15 17h6v-6"/></symbol>
   <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></symbol>
   <symbol id="i-phone" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></symbol>
   <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/></symbol>
@@ -92,7 +94,7 @@
 <section class="slide" id="cover" data-ch="0" data-bg="green">
   <div class="cv">
     <p class="kick r"><span class="n">CONCEPT</span>מצגת קונספט · אוקטובר 2026</p>
-    <h1 class="h-xl r" style="--d:1">אפליקציית <span class="wl">wellness</span><br><span class="tt">להפחתת מועקה</span></h1>
+    <h1 class="h-xl r" style="--d:1">אפליקציית <span class="wl">WELLNESS</span><br><span class="tt">להפחתת מועקה</span></h1>
     <p class="sub r" style="--d:2">אפליקציה שמציעה ברגע של מועקה משימה קוגניטיבית אחת, קצובה בזמן, מודדת מיד את השינוי בהרגשה, ולומדת עם הזמן מה עובד למי.</p>
     <div class="meta r" style="--d:3">
       <span class="pill"><svg class="ic"><use href="#i-timer"/></svg>2–6 דקות</span>
@@ -240,16 +242,12 @@
       </div>
       <div class="note sand r" style="--d:4"><svg class="ic"><use href="#i-info"/></svg><span>הפער בין מה שאנשים בוחרים לבין מה שעוזר להם <b>הוא הבעיה שהמוצר מבקש לפתור.</b></span></div>
     </div>
-    <div class="loop r" style="--d:2" aria-hidden="true">
-      <svg viewBox="0 0 520 520"><defs><marker id="ah" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z" fill="#7EB5AE"/></marker></defs>
-        <circle cx="260" cy="260" r="180" fill="none" stroke="#C5D8E6" stroke-width="2"/>
-        <path class="dash" d="M260 80 A180 180 0 0 1 416 350" fill="none" stroke="#7EB5AE" stroke-width="4" stroke-dasharray="10 10" marker-end="url(#ah)"/>
-        <path class="dash" d="M416 350 A180 180 0 0 1 104 350" fill="none" stroke="#7FA3BF" stroke-width="4" stroke-dasharray="10 10" marker-end="url(#ah)"/>
-        <path class="dash" d="M104 350 A180 180 0 0 1 260 80" fill="none" stroke="#8A95A5" stroke-width="4" stroke-dasharray="10 10" marker-end="url(#ah)"/>
-      </svg>
-      <div class="nd" style="top:28px;left:165px">רגש שלילי<small>מועקה, דאגה, עייפות</small></div>
-      <div class="nd" style="top:330px;left:318px">פנייה לטלפון<small>גלילה, דילוג, פיד</small></div>
-      <div class="nd" style="top:330px;left:12px">מצב רוח מעט גרוע יותר<small>ותחושה של זמן שאבד</small></div>
+    <div class="loop r" style="--d:2" aria-label="מעגל: רגש שלילי, פנייה לטלפון, מצב רוח מעט גרוע יותר">
+      <svg viewBox="0 0 520 520"><circle class="track2" cx="260" cy="270" r="180"/><circle class="track3" cx="260" cy="270" r="140"/><circle r="9" fill="#7EB5AE" opacity="1"><animateMotion dur="9s" begin="-0.5s" repeatCount="indefinite" path="M260 90 a180 180 0 1 1 -0.1 0"/></circle><circle r="5.5" fill="#7EB5AE" opacity="0.55"><animateMotion dur="9s" begin="-0.25s" repeatCount="indefinite" path="M260 90 a180 180 0 1 1 -0.1 0"/></circle><circle r="3.2" fill="#7EB5AE" opacity="0.3"><animateMotion dur="9s" begin="-0.02s" repeatCount="indefinite" path="M260 90 a180 180 0 1 1 -0.1 0"/></circle><circle r="9" fill="#7FA3BF" opacity="1"><animateMotion dur="9s" begin="-3.5s" repeatCount="indefinite" path="M260 90 a180 180 0 1 1 -0.1 0"/></circle><circle r="5.5" fill="#7FA3BF" opacity="0.55"><animateMotion dur="9s" begin="-3.25s" repeatCount="indefinite" path="M260 90 a180 180 0 1 1 -0.1 0"/></circle><circle r="3.2" fill="#7FA3BF" opacity="0.3"><animateMotion dur="9s" begin="-3.02s" repeatCount="indefinite" path="M260 90 a180 180 0 1 1 -0.1 0"/></circle><circle r="9" fill="#8FB39A" opacity="1"><animateMotion dur="9s" begin="-6.5s" repeatCount="indefinite" path="M260 90 a180 180 0 1 1 -0.1 0"/></circle><circle r="5.5" fill="#8FB39A" opacity="0.55"><animateMotion dur="9s" begin="-6.25s" repeatCount="indefinite" path="M260 90 a180 180 0 1 1 -0.1 0"/></circle><circle r="3.2" fill="#8FB39A" opacity="0.3"><animateMotion dur="9s" begin="-6.02s" repeatCount="indefinite" path="M260 90 a180 180 0 1 1 -0.1 0"/></circle></svg>
+      <div class="node n1"><svg class="ic"><use href="#i-cloud"/></svg>רגש שלילי<small>מועקה, דאגה, עייפות</small></div>
+      <div class="node n2"><svg class="ic"><use href="#i-phone"/></svg>פנייה לטלפון<small>גלילה, דילוג, פיד</small></div>
+      <div class="node n3"><svg class="ic"><use href="#i-down2"/></svg>מעט גרוע יותר<small>ותחושה של זמן שאבד</small></div>
+      <div class="ctr"><b>↻</b>המעגל שהאפליקציה<br>רוצה לשבור</div>
     </div>
   </div>
 </section>
@@ -637,8 +635,8 @@
         </div>
         <!-- 4 task intro -->
         <div class="v" data-k="4">
-          <p class="q" style="text-align:center">מעקב מטרות</p>
-          <p class="sub" style="text-align:center">עקוב/י אחרי העיגולים הכחולים.</p>
+          <p class="q" style="text-align:center">איפה הם היו?</p>
+          <p class="sub" style="text-align:center">זכור/י איפה העיגולים. כשהם נעלמים, הקש/י במקומם.</p>
           <div class="arena" style="margin-top:28px;width:78%;align-self:center"><canvas id="introcv" width="500" height="500"></canvas></div>
           <button class="pbtn" data-act="task">התחל</button>
           <button class="tbtn" data-act="home">לא עכשיו</button>
@@ -646,7 +644,7 @@
         <!-- 5 task -->
         <div class="v taskv" data-k="5">
           <div class="tbar"><svg class="tring" viewBox="0 0 32 32"><circle class="bgc" cx="16" cy="16" r="13"/><circle class="fgc" id="tfg" cx="16" cy="16" r="13" stroke-dasharray="81.7" stroke-dashoffset="0"/></svg><button class="xb" data-act="abandon" aria-label="יציאה"><svg class="ic"><use href="#i-x"/></svg></button></div>
-          <div class="arena"><canvas id="taskcv" width="600" height="600" aria-label="משימת מעקב מטרות: לחצו על העיגולים שהיו כחולים"></canvas></div>
+          <div class="arena"><canvas id="taskcv" width="600" height="600" aria-label="משימת זיכרון: זכרו איפה הופיעו העיגולים והקישו במקומם"></canvas></div>
         </div>
         <!-- 6 transition -->
         <div class="v blank" data-k="6"></div>
