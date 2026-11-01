@@ -61,16 +61,22 @@ groups.forEach(([title,keys])=>{
 });
 $$('.c[data-r]').forEach(c=>c.dataset.r.split(',').forEach(n=>{const b=document.createElement('button');b.textContent=n;b.dataset.n=n;b.setAttribute('aria-label','מקור '+n);c.appendChild(b);}));
 const tip=$('#cite');
+const touchUI=()=>document.body.classList.contains('portrait')||matchMedia('(hover: none)').matches;
+let tipT=0;const hideTip=()=>{clearTimeout(tipT);tip.classList.remove('show');};
 function showTip(b){const k=b.dataset.n,[t,u,l]=REFS[k];
-  tip.innerHTML='<b>['+k+']</b> '+esc(t)+'<br><span style="color:#b9d1ea">'+esc(linkLabel(u,l))+'</span><small>לחיצה תעביר לרשימת המקורות</small>';
+  tip.innerHTML='<b>['+k+']</b> '+esc(t)+'<br><span style="color:#b9d1ea">'+esc(linkLabel(u,l))+'</span><small>'+(touchUI()?'הרשימה המלאה בשקף המקורות בסוף המצגת':'לחיצה תעביר לרשימת המקורות')+'</small>';
   const r=b.getBoundingClientRect();tip.classList.add('show');
   const tw=tip.offsetWidth,th=tip.offsetHeight;
   const x=Math.min(innerWidth-tw-12,Math.max(12,r.left+r.width/2-tw/2));let y=r.top-th-10;if(y<70)y=r.bottom+10;
   tip.style.left=x+'px';tip.style.top=y+'px';}
 document.addEventListener('mouseover',e=>{const b=e.target.closest&&e.target.closest('.c button');if(b)showTip(b);});
-document.addEventListener('mouseout',e=>{if(e.target.closest&&e.target.closest('.c button'))tip.classList.remove('show');});
+document.addEventListener('mouseout',e=>{if(touchUI())return;if(e.target.closest&&e.target.closest('.c button'))tip.classList.remove('show');});
 document.addEventListener('focusin',e=>{const b=e.target.closest&&e.target.closest('.c button');if(b)showTip(b);else tip.classList.remove('show');});
-document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('.c button');if(!b)return;e.stopPropagation();tip.classList.remove('show');
+document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('.c button');
+  if(!b){if(tip.classList.contains('show')&&touchUI())hideTip();return;}
+  e.stopPropagation();
+  if(touchUI()){e.preventDefault();showTip(b);clearTimeout(tipT);tipT=setTimeout(hideTip,5000);return;}
+  tip.classList.remove('show');
   const k=b.dataset.n;go(slides.findIndex(s=>s.id==='refs'));
   $$('.refs li').forEach(l=>l.classList.remove('hi'));const li=$('#ref-'+k);
   setTimeout(()=>{li.classList.add('hi');li.scrollIntoView({block:'center',behavior:reduce?'auto':'smooth'});},portrait?500:950);
@@ -158,12 +164,25 @@ addEventListener('resize',()=>{clearTimeout(layout.t);layout.t=setTimeout(layout
 const step=d=>{const now=Date.now();if(now<lock)return;lock=now+750;go(cur+d);};
 $('#nav-next').addEventListener('click',()=>portrait?go(cur+1):go(cur+1));
 $('#nav-prev').addEventListener('click',()=>go(cur-1));
+$('#nav-top').addEventListener('click',()=>{closeMenu();go(0);});
+addEventListener('scroll',()=>{if(touchUI()&&tip.classList.contains('show'))hideTip();},{passive:true});
+/* chapter menu */
+const menu=$('#menu'),menuBtn=$('#menu-btn');
+const CHSUB=['רעיון, תקציר ומבנה','שש שורות של ממצאים','ארבע השאלות הפתוחות','מאגר, עקרונות ומשפחות משימה','מסכים, מערכת עיצוב והדגמה חיה','רשומה, הקצאה וניתוח','כלי לרגע, לא טיפול','הזרוע החסרה, קוהורט ומסגרות','37 מקורות'];
+chapters.forEach((name,c)=>{const i=slides.findIndex(s=>+s.dataset.ch===c);if(i<0)return;const li=document.createElement('li');
+  li.innerHTML='<button data-i="'+i+'" data-c="'+c+'"><span class="mn">'+(c===8?'∗':c===0?'0':c)+'</span><span><b>'+esc(name)+'</b><small>'+esc(CHSUB[c])+'</small></span><span class="ms ltr">'+pad(i+1)+'</span></button>';$('#menu-l').appendChild(li);});
+function openMenu(){const ch=+slides[Math.max(0,cur)].dataset.ch;$$('#menu-l button').forEach(b=>b.classList.toggle('cur',+b.dataset.c===ch));menu.hidden=false;requestAnimationFrame(()=>menu.classList.add('open'));menuBtn.setAttribute('aria-expanded','true');}
+function closeMenu(){if(menu.hidden)return;menu.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');setTimeout(()=>{if(!menu.classList.contains('open'))menu.hidden=true;},250);}
+menuBtn.addEventListener('click',e=>{e.stopPropagation();menu.hidden?openMenu():closeMenu();});
+$('#menu-l').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;closeMenu();go(+b.dataset.i);});
+document.addEventListener('click',e=>{if(!menu.hidden&&!e.target.closest('#menu,#menu-btn'))closeMenu();});
+addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu();});
 $('#fs').addEventListener('click',()=>{try{if(document.fullscreenElement)document.exitFullscreen();else document.documentElement.requestFullscreen().catch(()=>{});}catch(e){}});
 const inScroller=t=>{const r=t.closest&&t.closest('.refs');return r&&r.scrollHeight>r.clientHeight+2?r:null;};
 addEventListener('wheel',e=>{if(portrait)return;const sc=inScroller(e.target);
   if(sc){const atTop=sc.scrollTop<=0,atEnd=sc.scrollTop+sc.clientHeight>=sc.scrollHeight-2;if(!(e.deltaY<0&&atTop)&&!(e.deltaY>0&&atEnd))return;}
   e.preventDefault();if(Math.abs(e.deltaY)<14)return;step(e.deltaY>0?1:-1);},{passive:false});
-addEventListener('keydown',e=>{if(portrait)return;const t=e.target;if(t.matches&&t.matches('input,textarea,select'))return;
+addEventListener('keydown',e=>{if(portrait||!$('#menu').hidden)return;const t=e.target;if(t.matches&&t.matches('input,textarea,select'))return;
   if(['ArrowDown','PageDown',' ','ArrowLeft'].includes(e.key)){e.preventDefault();step(1);}
   else if(['ArrowUp','PageUp','ArrowRight'].includes(e.key)){e.preventDefault();step(-1);}
   else if(e.key==='Home'){e.preventDefault();go(0);}else if(e.key==='End'){e.preventDefault();go(N-1);}
