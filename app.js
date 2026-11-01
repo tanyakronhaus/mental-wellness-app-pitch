@@ -168,10 +168,22 @@ $('#nav-top').addEventListener('click',()=>{closeMenu();go(0);});
 addEventListener('scroll',()=>{if(touchUI()&&tip.classList.contains('show'))hideTip();},{passive:true});
 /* chapter menu */
 const menu=$('#menu'),menuBtn=$('#menu-btn');
-const CHSUB=['רעיון, תקציר ומבנה','שש שורות של ממצאים','ארבע השאלות הפתוחות','מאגר, עקרונות ומשפחות משימה','מסכים, מערכת עיצוב והדגמה חיה','רשומה, הקצאה וניתוח','כלי לרגע, לא טיפול','הזרוע החסרה, קוהורט ומסגרות','37 מקורות'];
-chapters.forEach((name,c)=>{const i=slides.findIndex(s=>+s.dataset.ch===c);if(i<0)return;const li=document.createElement('li');
-  li.innerHTML='<button data-i="'+i+'" data-c="'+c+'"><span class="mn">'+(c===8?'∗':c===0?'0':c)+'</span><span><b>'+esc(name)+'</b><small>'+esc(CHSUB[c])+'</small></span><span class="ms ltr">'+pad(i+1)+'</span></button>';$('#menu-l').appendChild(li);});
-function openMenu(){const ch=+slides[Math.max(0,cur)].dataset.ch;$$('#menu-l button').forEach(b=>b.classList.toggle('cur',+b.dataset.c===ch));menu.hidden=false;requestAnimationFrame(()=>menu.classList.add('open'));menuBtn.setAttribute('aria-expanded','true');}
+const MENU=[
+  {id:'cover',t:'פתיח',d:'אפליקציית WELLNESS להפחתת מועקה'},
+  {id:'opening',t:'הרעיון בפסקה אחת',d:'הבסיס בקצרה'},
+  {id:'abstract',t:'תקציר',d:'משימה, מדידה ולמידה'},
+  {id:'agenda',t:'מבנה המצגת',d:'שבעה פרקים'},
+  {ch:1,t:'הבסיס המדעי',d:'שש שורות של ממצאים'},
+  {ch:2,t:'הפער במחקר',d:'ארבע השאלות הפתוחות'},
+  {ch:3,t:'הרעיון והמערכת',d:'מאגר, עקרונות ומשפחות משימה'},
+  {ch:4,t:'אפיון הממשק',d:'מסכים, מערכת עיצוב והדגמה חיה'},
+  {ch:5,t:'נתונים וניתוח',d:'רשומה, הקצאה וניתוח'},
+  {ch:6,t:'גבולות ואתיקה',d:'כלי לרגע, לא טיפול'},
+  {ch:7,t:'הצעה לשיתוף פעולה מחקרי',d:'הזרוע החסרה, קוהורט ומסגרות'},
+  {id:'refs',t:'מקורות',d:'37 מקורות'}];
+MENU.forEach(m=>{const i=m.id?slides.findIndex(s=>s.id===m.id):slides.findIndex(s=>+s.dataset.ch===m.ch);if(i<0)return;m.i=i;const li=document.createElement('li');
+  li.innerHTML='<button data-i="'+i+'"'+(m.ch?' data-c="'+m.ch+'"':' data-id="'+m.id+'"')+(m.ch?'':' class="plain"')+'><span class="mn">'+(m.ch||'')+'</span><span><b>'+esc(m.t)+'</b><small>'+esc(m.d)+'</small></span><span class="ms ltr">'+pad(i+1)+'</span></button>';$('#menu-l').appendChild(li);});
+function openMenu(){const sl=slides[Math.max(0,cur)],ch=+sl.dataset.ch;$$('#menu-l button').forEach(b=>b.classList.toggle('cur',b.dataset.c?+b.dataset.c===ch:b.dataset.id===sl.id));menu.hidden=false;requestAnimationFrame(()=>menu.classList.add('open'));menuBtn.setAttribute('aria-expanded','true');}
 function closeMenu(){if(menu.hidden)return;menu.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');setTimeout(()=>{if(!menu.classList.contains('open'))menu.hidden=true;},250);}
 menuBtn.addEventListener('click',e=>{e.stopPropagation();menu.hidden?openMenu():closeMenu();});
 $('#menu-l').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;closeMenu();go(+b.dataset.i);});

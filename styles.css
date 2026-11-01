@@ -865,3 +865,9 @@ body.portrait .c7list{grid-template-columns:1fr}
 .menu small{display:block;font-size:13px;color:var(--muted);margin-top:1px}
 .menu .ms{font-family:var(--f-d);font-size:13px;color:var(--muted)}
 body.portrait .menu{left:max(16px,env(safe-area-inset-left,0px))}
+.menu button.plain .mn{background:transparent}
+.menu button.plain .mn::after{content:"";width:9px;height:9px;border-radius:50%;background:var(--c-ac)}
+.menu button.plain.cur .mn{background:transparent}
+.menu button.plain.cur .mn::after{background:var(--t-d);box-shadow:0 0 0 5px rgba(126,181,174,.25)}
+.menu li:nth-child(4){padding-bottom:6px;margin-bottom:4px;border-bottom:1px solid var(--line)}
+.menu li:nth-child(11){padding-bottom:6px;margin-bottom:4px;border-bottom:1px solid var(--line)}
