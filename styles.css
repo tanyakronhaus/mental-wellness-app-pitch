@@ -100,8 +100,8 @@ button:focus-visible,a:focus-visible,[tabindex]:focus-visible,input:focus-visibl
 .slide{position:absolute;inset:0;padding:40px 92px 40px;display:flex;flex-direction:column;justify-content:center;gap:22px}
 
 /* type */
-.kick{display:flex;align-items:center;gap:14px;font-size:17px;font-weight:500;letter-spacing:.05em;color:var(--t-d)}
-.kick .n{font-family:var(--f-d);font-weight:600;font-size:14px;color:#fbfdfc;background:var(--cta);border-radius:999px;padding:4px 13px;direction:ltr;letter-spacing:.04em}
+.kick{display:flex;align-items:center;gap:14px;font-size:21px;font-weight:500;letter-spacing:.05em;color:var(--t-d)}
+.kick .n{font-family:var(--f-d);font-weight:600;font-size:17px;color:#fbfdfc;background:var(--cta);border-radius:999px;padding:4px 13px;direction:ltr;letter-spacing:.04em}
 .h-xl{font-family:var(--f-d);font-weight:600;font-size:84px;line-height:1.06;color:var(--ink)}
 .h-l{font-family:var(--f-d);font-weight:600;font-size:50px;line-height:1.12;color:var(--ink)}
 .h-m{font-family:var(--f-d);font-weight:600;font-size:31px;line-height:1.2;color:var(--ink-2)}
@@ -824,3 +824,12 @@ body.portrait .lane .ar{display:none}
 @keyframes notein{from{opacity:0;transform:translateX(-40px)}}
 body.portrait .slide{transition:none}
 body.portrait .slide.on{animation:none}
+
+/* 7.1 · section opener */
+.hero-kick{gap:18px;margin-bottom:4px}
+.hero-kick .n{font-size:22px;padding:7px 18px}
+.hero-kick>.ic{width:58px;height:58px;padding:13px;border-radius:20px;background:var(--cta);color:#fbfdfc;box-shadow:0 12px 28px rgba(90,165,156,.35);box-sizing:border-box}
+.hero-kick .hk{font-family:var(--f-d);font-weight:600;font-size:46px;line-height:1.1;letter-spacing:0;background:var(--tt);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shim 7s ease-in-out infinite alternate}
+#collab .h-l{font-size:40px;color:var(--ink-2)}
+body.portrait .hero-kick .hk{font-size:28px}
+body.portrait .kick{font-size:17px}

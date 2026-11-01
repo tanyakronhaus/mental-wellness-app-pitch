@@ -247,7 +247,7 @@
       <div class="node n1"><svg class="ic"><use href="#i-cloud"/></svg>רגש שלילי<small>מועקה, דאגה, עייפות</small></div>
       <div class="node n2"><svg class="ic"><use href="#i-phone"/></svg>פנייה לטלפון<small>גלילה, דילוג, פיד</small></div>
       <div class="node n3"><svg class="ic"><use href="#i-down2"/></svg>מעט גרוע יותר<small>ותחושה של זמן שאבד</small></div>
-      <div class="ctr"><b>↻</b>המעגל שהאפליקציה<br>רוצה לשבור</div>
+      <div class="ctr">המעגל שהאפליקציה<br>רוצה לשבור</div>
     </div>
   </div>
 </section>
@@ -736,7 +736,7 @@
 <!-- 23 · States -->
 <section class="slide" id="states" data-ch="4" data-bg="sand">
   <p class="kick r"><span class="n">4.8</span>התראות, מצבים ונגישות</p>
-  <h2 class="h-l r" style="--d:1;font-size:44px">כשמשהו לא עובד, <span class="tt">המשתמש לא צריך לדעת.</span></h2>
+  <h2 class="h-l r" style="--d:1;font-size:44px">כשמשהו משתבש, <span class="tt">האפליקציה מטפלת בזה בשקט.</span></h2>
   <div class="stg st">
     <div class="stb card"><h3><svg class="ic"><use href="#i-bell"/></svg>התראה אחת בלבד</h3><span class="quote">רגע לראש?</span><ul><li>נוסח קבוע, בלי אמוג'י ובלי שם. פותחת ישר את מסך 2a.</li><li>אין התראות על רצפים או "לא ראינו אותך".</li><li>לא נשלחת אם היה סשן ב-6 השעות האחרונות.</li></ul></div>
     <div class="stb card"><h3><svg class="ic"><use href="#i-wifi"/></svg>מצבי שגיאה</h3><ul><li><b>אין רשת:</b> הכל עובד, הרשומות נשלחות אחר כך.</li><li><b>מושתק או בלי אוזניות:</b> משפחות הצליל לא מוגרלות.</li><li><b>הרשאת מוזיקה בוטלה:</b> F3 לא מוגרלת.</li><li><b>המשימה קרסה:</b> חזרה לבית, הרשומה מסומנת error.</li><li><b>פתיחה כפולה בתוך דקה:</b> סשן חדש רגיל.</li></ul></div>
@@ -822,10 +822,10 @@
   <h2 class="h-l r" style="--d:1;font-size:44px">שמונה שאלות. <span class="tt">שש מהן מקבלות תשובה סיבתית בזכות ההגרלה.</span></h2>
   <div class="aq st">
     <div class="aqi causal"><u>1</u><div><b>האם יש ירידה במועקה בתוך סשן?</b><small>מודל מעורב: <code>suds_post ~ suds_pre</code>, אפקט אקראי למשתמש</small></div></div>
-    <div class="aqi causal"><u>2</u><div><b>האם משפחות נבדלות?</b><small><code>family × suds_pre</code>, השוואות זוגיות עם תיקון FDR</small></div></div>
+    <div class="aqi causal"><u>2</u><div><b>האם משפחות המשימה נבדלות זו מזו?</b><small><code>family × suds_pre</code>, השוואות זוגיות עם תיקון FDR</small></div></div>
     <div class="aqi causal"><u>3</u><div><b>מה הקושי הנכון?</b><small><code>level × suds_pre</code>. השערה: U הפוכה שזזה שמאלה ככל שהמועקה גבוהה<span class="c" data-r="13"></span></small></div></div>
-    <div class="aqi causal"><u>4</u><div><b>האם הערוץ הרב-חושי מוסיף?</b><small>F1/F3/F6 מול אותו תחום בערוץ חזותי בלבד<span class="c" data-r="27"></span></small></div></div>
-    <div class="aqi causal"><u>5</u><div><b>האם סוג המועקה מנבא איזו משפחה עובדת?</b><small><code>profile × family</code></small></div></div>
+    <div class="aqi causal"><u>4</u><div><b>האם הערוץ הרב-חושי מוסיף?</b><small>משפחות המשימה הרב-חושיות (F1/F3/F6) מול משפחות באותו תחום בערוץ חזותי בלבד<span class="c" data-r="27"></span></small></div></div>
+    <div class="aqi causal"><u>5</u><div><b>האם סוג המועקה מנבא איזו משפחת משימות עובדת?</b><small><code>profile × family</code></small></div></div>
     <div class="aqi causal"><u>6</u><div><b>האם המודל המותאם מנצח את ההגרלה?</b><small><code>assignment × time</code>, בכל משתמש<span class="c" data-r="23"></span></small></div></div>
     <div class="aqi"><u>7</u><div><b>האם האפקט מצטבר?</b><small><code>suds_pre</code> לאורך שבועות, מול שיעור השימוש<span class="c" data-r="18,25"></span></small></div></div>
     <div class="aqi"><u>8</u><div><b>איזו ערכת צבעים נבחרת, ובאיזו הדלתא הגדולה ביותר?</b><small><code>palette × suds_pre</code>. הערכה היא בחירה, ולכן מתאמי בלבד</small></div></div>
@@ -857,7 +857,7 @@
 
 <!-- 29 · Collaboration hero: the missing arm -->
 <section class="slide" id="collab" data-ch="7" data-bg="teal">
-  <p class="kick r"><span class="n">7.1</span>הצעה לשיתוף פעולה מחקרי</p>
+  <p class="kick r hero-kick"><span class="n">7.1</span><svg class="ic"><use href="#i-handshake"/></svg><span class="hk">הצעה לשיתוף פעולה מחקרי</span></p>
   <h2 class="h-l r" style="--d:1">האפליקציה היא <span class="tt">הזרוע שהמחקרים עצמם הצביעו עליה כחסרה.</span></h2>
   <div class="arm">
     <div class="armb card mix r" style="--d:2">
