@@ -4,7 +4,7 @@ const W=1600,H=900;
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const slides=$$('.slide'),N=slides.length;
-const chapters=['פתיחה','הבסיס המדעי','הפער במחקר','הרעיון והמערכת','אפיון הממשק','נתונים וניתוח','גבולות ואתיקה','שיתוף פעולה מחקרי','מקורות'];
+const chapters=['פתיחה','הבסיס המדעי','הפער במחקר','הרעיון והמערכת','אפיון הממשק','נתונים וניתוח','גבולות ואתיקה','שיתוף פעולה מחקרי','סיכום','מקורות'];
 const bgEl=$('#bg'),strip=$('#strip'),vp=$('#viewport'),fill=$('#fill'),blip=$('#blip'),track=$('#track');
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 
@@ -172,15 +172,16 @@ const MENU=[
   {id:'cover',t:'פתיח',d:'אפליקציית WELLNESS להפחתת מועקה'},
   {id:'opening',t:'הרעיון בפסקה אחת',d:'הבסיס בקצרה'},
   {id:'abstract',t:'תקציר',d:'משימה, מדידה ולמידה'},
-  {id:'agenda',t:'מבנה המצגת',d:'שבעה פרקים'},
+  {id:'agenda',t:'מבנה המצגת',d:'תשעה פרקים'},
   {ch:1,t:'הבסיס המדעי',d:'שש שורות של ממצאים'},
-  {ch:2,t:'הפער במחקר',d:'ארבע השאלות הפתוחות'},
+  {ch:2,t:'הפער שהמחקרים השאירו פתוח',d:'ארבע השאלות הפתוחות'},
   {ch:3,t:'הרעיון והמערכת',d:'מאגר, עקרונות ומשפחות משימה'},
   {ch:4,t:'אפיון הממשק',d:'מסכים, מערכת עיצוב והדגמה חיה'},
   {ch:5,t:'נתונים וניתוח',d:'רשומה, הקצאה וניתוח'},
   {ch:6,t:'גבולות ואתיקה',d:'כלי לרגע, לא טיפול'},
   {ch:7,t:'הצעה לשיתוף פעולה מחקרי',d:'הזרוע החסרה, קוהורט ומסגרות'},
-  {id:'refs',t:'מקורות',d:'37 מקורות'}];
+  {ch:8,t:'סיכום',d:'למשתמש, למחקר ולשותפות'},
+  {ch:9,t:'מקורות',d:'37 מקורות'}];
 MENU.forEach(m=>{const i=m.id?slides.findIndex(s=>s.id===m.id):slides.findIndex(s=>+s.dataset.ch===m.ch);if(i<0)return;m.i=i;const li=document.createElement('li');
   li.innerHTML='<button data-i="'+i+'"'+(m.ch?' data-c="'+m.ch+'"':' data-id="'+m.id+'"')+(m.ch?'':' class="plain"')+'><span class="mn">'+(m.ch||'')+'</span><span><b>'+esc(m.t)+'</b><small>'+esc(m.d)+'</small></span><span class="ms ltr">'+pad(i+1)+'</span></button>';$('#menu-l').appendChild(li);});
 function openMenu(){const sl=slides[Math.max(0,cur)],ch=+sl.dataset.ch;$$('#menu-l button').forEach(b=>b.classList.toggle('cur',b.dataset.c?+b.dataset.c===ch:b.dataset.id===sl.id));menu.hidden=false;requestAnimationFrame(()=>menu.classList.add('open'));menuBtn.setAttribute('aria-expanded','true');}
