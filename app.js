@@ -38,20 +38,11 @@ const REFS={
  25:['Catalogna, M., Saporta, N., Nathansohn-Levi, B., Tamir, T., Shahaf, A., Molcho, S., Erlich, S., Shelly, S., & Amedi, A. (2025). Mobile application leads to psychological improvement and correlated neuroimmune function change in subjective cognitive decline. npj Digital Medicine, 8, 359.',D+'10.1038/s41746-025-01765-1'],
  26:['Amedi, A., Shelly, S., Saporta, N., & Catalogna, M. (2024). Perceptual learning and neural correlates of virtual navigation in subjective cognitive decline: A pilot study. iScience, 27(12), 111411.',D+'10.1016/j.isci.2024.111411'],
  27:['Schwartz, N., Snir, A., & Amedi, A. (2025). Feeling the music: Exploring emotional effects of auditory-tactile musical experiences. Frontiers in Virtual Reality, 6, 1592652.',D+'10.3389/frvir.2025.1592652'],
- 28:['Catalogna, M., & Amedi, A. (2026). Digital neuroplasticity modulation of the brain–immune axis: Translational strategies for neurodegenerative, psychiatric, and aging-related conditions. Neural Regeneration Research.',D+'10.4103/NRR.NRR-D-25-01728'],
- C1:['Valdez, P., & Mehrabian, A. (1994). Effects of color on emotions. Journal of Experimental Psychology: General, 123(4), 394–409.','https://pubmed.ncbi.nlm.nih.gov/7996122/','PubMed'],
- C2:['Wilms, L., & Oberfeld, D. (2018). Color and emotion: Effects of hue, saturation, and brightness. Psychological Research, 82, 896–914.','https://www.staff.uni-mainz.de/oberfeld/downloads/Wilms-Oberfeld2018_Article_ColorAndEmotionEffectsOfHueSat.pdf','PDF'],
- C3:['Jacobs, K. W., & Suess, J. F. (1975). Effects of four psychological primary colors on anxiety state. Perceptual and Motor Skills, 41, 207–210.','https://scilit.com/publications/acf521826d2ea4c9d7564e3620eed6c6','Scilit'],
- C4:['Dijkstra, K., Pieterse, M. E., & Pruyn, A. (2008). Individual differences in reactions towards color in simulated healthcare environments. Journal of Environmental Psychology, 28(3), 268–277.','https://research.vu.nl/en/publications/individual-differences-in-reactions-towards-color-in-simulated-he/','VU'],
- C5:['AL-Ayash, A., et al. (2016). The influence of color on student emotion, heart rate, and performance in learning environments. Color Research & Application, 41(2), 196–205.','https://espace.curtin.edu.au/handle/20.500.11937/6179','Curtin'],
- C6:['Minguillon, J., et al. (2017). Blue lighting accelerates post-stress relaxation. PLoS ONE, 12(10), e0186399.','https://pmc.ncbi.nlm.nih.gov/articles/PMC5648169','PMC'],
- C7:['Elliot, A. J., & Maier, M. A. (2014). Color psychology: Effects of perceiving color on psychological functioning in humans. Annual Review of Psychology, 65, 95–120.','https://pubmed.ncbi.nlm.nih.gov/23808916/','PubMed'],
- C8:['Genschow, O., et al. (2015). Does Baker-Miller pink reduce aggression in prison detention cells? Psychology, Crime & Law, 21(5), 482–489.','https://fis.leuphana.de/de/publications/does-baker-miller-pink-reduce-aggression-in-prison-detention-cell/','Leuphana'],
- C9:['Jonauskaite, D., et al. (2020). To see or not to see: Importance of color perception to color therapy. Color Research & Application, 45(3), 450–464.','https://serval.unil.ch/notice/serval:BIB_A3C7052C22D4','UNIL']
+ 28:['Catalogna, M., & Amedi, A. (2026). Digital neuroplasticity modulation of the brain–immune axis: Translational strategies for neurodegenerative, psychiatric, and aging-related conditions. Neural Regeneration Research.',D+'10.4103/NRR.NRR-D-25-01728']
 };
 const linkLabel=(u,l)=>l||('doi:'+u.replace(D,''));
 const refList=$('#refs-l');
-const groups=[['פסיכולוגיה קוגניטיבית, ויסות רגשי והתערבויות דיגיטליות',[...Array(23)].map((_,i)=>String(i+1))],['התערבות דיגיטלית רב-חושית (מעבדת עמדי, אוניברסיטת רייכמן)',['24','25','26','27','28']],['צבע ורגש',['C1','C2','C3','C4','C5','C6','C7','C8','C9']]];
+const groups=[['פסיכולוגיה קוגניטיבית, ויסות רגשי והתערבויות דיגיטליות',[...Array(23)].map((_,i)=>String(i+1))],['התערבות דיגיטלית רב-חושית (מעבדת עמדי, אוניברסיטת רייכמן)',['24','25','26','27','28']]];
 groups.forEach(([title,keys])=>{
   const h=document.createElement('h4');h.textContent=title;h.style.direction='rtl';h.style.textAlign='right';refList.appendChild(h);
   const ul=document.createElement('ul');
@@ -182,7 +173,7 @@ const MENU=[
   {ch:6,t:'גבולות ואתיקה',d:'כלי לרגע, לא טיפול'},
   {ch:7,t:'הצעה לשיתוף פעולה מחקרי',d:'הזרוע החסרה, קוהורט ומסגרות'},
   {ch:8,t:'סיכום',d:'למשתמש, למחקר ולשותפות'},
-  {ch:9,t:'מקורות',d:'37 מקורות'}];
+  {ch:9,t:'מקורות',d:'28 מקורות'}];
 MENU.forEach(m=>{const i=m.id?slides.findIndex(s=>s.id===m.id):slides.findIndex(s=>+s.dataset.ch===m.ch);if(i<0)return;m.i=i;const li=document.createElement('li');
   li.innerHTML='<button data-i="'+i+'"'+(m.ch?' data-c="'+m.ch+'"':' data-id="'+m.id+'"')+(m.ch?'':' class="plain"')+'><span class="mn">'+(m.ch||'')+'</span><span><b>'+esc(m.t)+'</b><small>'+esc(m.d)+'</small></span><span class="ms ltr">'+pad(i+1)+'</span></button>';$('#menu-l').appendChild(li);});
 function openMenu(){const sl=slides[Math.max(0,cur)],ch=+sl.dataset.ch;$$('#menu-l button').forEach(b=>b.classList.toggle('cur',b.dataset.c?+b.dataset.c===ch:b.dataset.id===sl.id));menu.hidden=false;requestAnimationFrame(()=>menu.classList.add('open'));menuBtn.setAttribute('aria-expanded','true');}
@@ -232,20 +223,6 @@ function rng(seed){let s=seed>>>0||1;return()=>{s^=s<<13;s>>>=0;s^=s>>17;s^=s<<5
     const m=+b.dataset.m,set=m?T:P;slots.forEach((s,i)=>{s.className='slot '+set[i][0];s.textContent=set[i][1];});
     $('#wmA').style.width=m?'25%':'85%';$('#wmB').style.width=m?'75%':'15%';$('#wmAv').textContent=m?'נמוך':'גבוה';$('#wmBv').textContent=m?'גבוה':'נמוך';});
 })();
-
-/* ───────── Color lab: exact palette hexes from the spec ───────── */
-(function(){const sw=$('#swatch');if(!sw)return;
-  const P={A:['A · ירוק מרפא',[['רקע','#EEF3EC'],['משני','#C9DCC4'],['הדגשה','#8FB39A']]],
-           B:['B · כחול שקט',[['רקע','#EDF3F7'],['משני','#C5D8E6'],['הדגשה','#7FA3BF']]],
-           C:['C · טורקיז-ירקרק',[['רקע','#EEF5F4'],['משני','#BFDDD8'],['הדגשה','#7EB5AE']]]};
-  const CMP=['להשוואה · כתום הגירויים מהאפיון','#C97B3A'];
-  function hsb(hex){const n=parseInt(hex.slice(1),16),r=(n>>16&255)/255,g=(n>>8&255)/255,b=(n&255)/255;const mx=Math.max(r,g,b),mn=Math.min(r,g,b);return[mx?(mx-mn)/mx:0,mx];}
-  function row(name,hex,cmp){const [S,B]=hsb(hex);const a=-.31*B+.60*S;const pct=Math.max(0,Math.min(100,(a+.31)/.91*100));
-    return '<div class="crow'+(cmp?' cmp':'')+'"><i style="background:'+hex+'"></i><span class="nm">'+name+'</span><b class="ltr">'+hex+'</b><span class="hs ltr">S '+Math.round(S*100)+'% · B '+Math.round(B*100)+'%</span><span class="bar"><u style="right:'+pct.toFixed(1)+'%"></u></span></div>';}
-  function set(p){const [nm,cs]=P[p];$('#swname').textContent=nm;sw.style.background='linear-gradient(135deg,'+cs.map(c=>c[1]).join(',')+')';
-    $('#crows').innerHTML='<div class="crow hd"><span></span><span>תפקיד</span><span>קוד</span><span>רוויות · בהירות</span><span>עוררות: נמוכה ← גבוהה</span></div>'+cs.map(c=>row(c[0],c[1])).join('')+row(CMP[0],CMP[1],true);
-    $$('#palseg button').forEach(x=>x.classList.toggle('sel',x.dataset.p===p));}
-  $('#palseg').addEventListener('click',e=>{const b=e.target.closest('button');if(b)set(b.dataset.p);});set('A');})();
 
 /* ───────── Inverted U ───────── */
 (function(){const path=$('#uperf');if(!path)return;const L=path.getTotalLength();
