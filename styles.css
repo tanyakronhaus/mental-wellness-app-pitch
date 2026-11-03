@@ -928,3 +928,18 @@ body.portrait .apar{transform:rotate(-90deg)}
 .fc:hover .fcl .ic{transform:translateX(-5px)}
 body.portrait .fcs{grid-template-columns:1fr}
 body.portrait .fc{min-height:0}
+
+/* consent rows: checkbox on the right of the text */
+.pcard.consent{justify-content:flex-start;align-items:flex-start;gap:12px;min-height:76px;padding:14px 16px;font-size:15px;line-height:1.4}
+.pcard.consent input{margin:1px 0 0;flex:none}
+.pcard.consent span{flex:1;min-width:0}
+/* 1.1: the illustration box matches the height of the text column */
+.cols-stretch{align-items:stretch}
+.cols-stretch .wm{justify-content:space-between}
+.cols-stretch .wm .slots{flex:1;align-content:center}
+/* 3: five cards in one row on desktop */
+.parts{grid-template-columns:repeat(5,1fr)}
+.pt3{min-height:300px}
+body.portrait .parts,body.portrait .fcs{grid-template-columns:1fr 1fr}
+@media (max-width:599px){body.portrait .parts,body.portrait .fcs{grid-template-columns:1fr}}
+body.portrait .pt3{min-height:0}
