@@ -173,7 +173,7 @@ const MENU=[
   {id:'opening',t:'הרעיון בפסקה אחת',d:'הבסיס בקצרה'},
   {id:'abstract',t:'תקציר',d:'משימה, מדידה ולמידה'},
   {id:'agenda',t:'מבנה המצגת',d:'תשעה פרקים'},
-  {ch:1,t:'הבסיס המדעי',d:'שש שורות של ממצאים'},
+  {ch:1,t:'הבסיס המדעי',d:'חמש שורות של ממצאים'},
   {ch:2,t:'הפער שהמחקרים השאירו פתוח',d:'ארבע השאלות הפתוחות'},
   {ch:3,t:'הרעיון והמערכת',d:'מאגר, עקרונות ומשפחות משימה'},
   {ch:4,t:'אפיון הממשק',d:'מסכים, מערכת עיצוב והדגמה חיה'},
@@ -205,8 +205,8 @@ addEventListener('touchstart',e=>{if(portrait)return;const t=e.target;ty=(t.clos
 addEventListener('touchend',e=>{if(portrait||ty===null)return;const d=ty-e.changedTouches[0].clientY;if(Math.abs(d)>60)step(d>0?1:-1);ty=null;},{passive:true});
 
 /* ───────── Shared helpers ───────── */
-const PAL={A:{bg:'#EEF3EC',sf:'#C9DCC4',ac:'#8FB39A',tx:'#2F3E34'},B:{bg:'#EDF3F7',sf:'#C5D8E6',ac:'#7FA3BF',tx:'#2C3A47'},C:{bg:'#EEF5F4',sf:'#BFDDD8',ac:'#7EB5AE',tx:'#2F3E34'}};
-const ST={blue:'#3B6EA8',orange:'#C97B3A',violet:'#7A5BA8',grey:'#8A95A5'};
+const PAL={A:{bg:'#fbf9ff',sf:'#ece7ff',ac:'#8f7ce8',tx:'#2c2849'},B:{bg:'#f6fbff',sf:'#e3f1fd',ac:'#7fbbec',tx:'#2c2849'},C:{bg:'#f5fcf8',sf:'#e0f6ec',ac:'#6fcfa6',tx:'#2c2849'}};
+const ST={blue:'#3d86c6',orange:'#e8875e',violet:'#6f5bd6',rose:'#d9679b',grey:'#a79ee0'};
 function setPhonePal(ph,p){ph.classList.remove('pB','pC');if(p!=='A')ph.classList.add('p'+p);}
 function drawGraph(el,pairs,newLast){
   $$('.ln,.pt',el).forEach(n=>n.remove());
@@ -321,8 +321,8 @@ function anim(type,ctx,t,W2,H2,st){
     if(sil){ctx.beginPath();ctx.moveTo(S*.015,-S*.015);ctx.lineTo(S*.045,S*.015);ctx.moveTo(S*.045,-S*.015);ctx.lineTo(S*.015,S*.015);ctx.stroke();}else{ctx.beginPath();ctx.arc(S*.01,0,S*.025,-.8,.8);ctx.stroke();}ctx.restore();
   }
   else if(type==='grid'){const n=4,pd=S*.06,g=S*.035,ts=(S-2*pd-(n-1)*g)/n;const cyc=5.2,ph=t%cyc,k=Math.floor(t/cyc);const r=rng(k*5+2);
-    const pos=[];while(pos.length<3){const q=(r()*16)|0;if(!pos.includes(q))pos.push(q);}const cols=[ST.blue,ST.violet,ST.orange];
-    for(let i=0;i<16;i++){const x=pd+(i%n)*(ts+g),y=pd+((i/n)|0)*(ts+g);ctx.fillStyle='#C9DCC4';rr(ctx,x,y,ts,ts,ts*.22);ctx.fill();}
+    const pos=[];while(pos.length<3){const q=(r()*16)|0;if(!pos.includes(q))pos.push(q);}const cols=[ST.violet,ST.rose,ST.blue];
+    for(let i=0;i<16;i++){const x=pd+(i%n)*(ts+g),y=pd+((i/n)|0)*(ts+g);ctx.fillStyle='#ece7ff';rr(ctx,x,y,ts,ts,ts*.22);ctx.fill();}
     pos.forEach((q,j)=>{const cx=pd+(q%n)*(ts+g)+ts/2,cy=pd+((q/n)|0)*(ts+g)+ts/2;let sc=0;
       if(ph<1.8)sc=Math.min(1,ph/.25);else if(ph<2.1)sc=1-(ph-1.8)/.3;
       const tt=2.4+j*.7;if(ph>tt){sc=Math.min(1,(ph-tt)/.25);const rp=Math.min(1,(ph-tt)/.5);ctx.strokeStyle='rgba(47,62,52,'+(1-rp)*.6+')';ctx.lineWidth=S*.012;ctx.beginPath();ctx.arc(cx,cy,ts*.3+rp*ts*.3,0,7);ctx.stroke();}
@@ -466,7 +466,7 @@ function gridGeom(S){const w=Math.min(S-2*GRID.pad,S-GRID.top-8),ts=(w-(GRID.n-1
 function startTask(){const lvl=demo.rec.level||1;
   demo.task={t0:performance.now(),lvl,nT:[3,4,5][lvl-1],showT:[3,2.6,2.2][lvl-1],round:null,hits:0,tot:0,rts:[],adj:0,streakOk:0,streakBad:0};newRound();dShow(5);}
 function newRound(){const T=demo.task;const pos=[];while(pos.length<T.nT){const q=(Math.random()*16)|0;if(!pos.includes(q))pos.push(q);}
-  const cols=[ST.blue,ST.violet,ST.orange,ST.blue,ST.violet];
+  const cols=[ST.violet,ST.rose,ST.blue,ST.orange,ST.violet];
   T.round={items:pos.map((q,i)=>({q,c:cols[i]})),start:performance.now(),phase:'show',taps:{},picks:0,recallAt:0,endAt:0};}
 function taskFrame(now){const T=demo.task;if(!T||!tctx)return;const el=(now-T.t0)/1000;
   const fr=Math.max(0,1-el/TASK_SEC);$('#tfg').style.strokeDashoffset=(81.7*(1-fr)).toFixed(2);
@@ -476,7 +476,7 @@ function taskFrame(now){const T=demo.task;if(!T||!tctx)return;const el=(now-T.t0
   if(R.phase==='hide'&&rt>R.hideAt+.35){R.phase='recall';R.recallAt=now;}
   if(R.phase==='reveal'&&(now-R.endAt)>1100){newRound();return;}
   const S=taskCv.width,{ts,x0,y0}=gridGeom(S);const ph=$('#dphone');const cs=getComputedStyle(ph);
-  const sf=cs.getPropertyValue('--sf').trim()||'#C9DCC4',tx=cs.getPropertyValue('--tx').trim()||'#2F3E34',ac=cs.getPropertyValue('--ac').trim()||'#8FB39A';
+  const sf=cs.getPropertyValue('--sf').trim()||'#ece7ff',tx=cs.getPropertyValue('--tx').trim()||'#2c2849',ac=cs.getPropertyValue('--ac').trim()||'#8f7ce8';
   tctx.clearRect(0,0,S,S);
   // phase indicator: eye + time bar while memorising, slots while recalling
   const cy=44;tctx.lineCap='round';
