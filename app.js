@@ -88,7 +88,8 @@ const wps=chapters.map((name,c)=>{const i=slides.findIndex(s=>+s.dataset.ch===c)
   const b=document.createElement('button');b.className='wp';b.setAttribute('aria-label','מעבר אל '+name);
   b.style.right=(i/(N-1)*100)+'%';b.innerHTML='<span>'+name+'</span>';if(c%2)b.classList.add('up');
   b.addEventListener('click',()=>go(i));track.appendChild(b);return {b,i,c};}).filter(Boolean);
-$$('[data-go]').forEach(a=>a.addEventListener('click',()=>{const i=slides.findIndex(s=>s.id===a.dataset.go);if(i>=0)go(i);}));
+$$('[data-go]').forEach(a=>{const f=e=>{if(e.target.closest&&e.target.closest('.c'))return;const i=slides.findIndex(s=>s.id===a.dataset.go);if(i>=0)go(i);};
+  a.addEventListener('click',f);if(a.getAttribute('role')==='link')a.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();f(e);}});});
 
 let cur=-1,portrait=false,pageH=0,lock=0;
 const pad=n=>String(n).padStart(2,'0');
@@ -109,7 +110,7 @@ function activate(i){
 }
 /* count-up for the headline numbers on each slide */
 function countUp(slide){
-  $$('.stat .v, .sc .big',slide).forEach(el=>{
+  $$('.stat .v, .sc .big, .fc .fvn',slide).forEach(el=>{
     const tn=[...el.childNodes].find(n=>n.nodeType===3&&/\d/.test(n.textContent));if(!tn)return;
     if(tn._orig==null)tn._orig=tn.textContent;const o=tn._orig;const m=o.match(/\d[\d,]*(\.\d+)?/);if(!m)return;
     const raw=m[0],to=parseFloat(raw.replace(/,/g,'')),dec=(raw.split('.')[1]||'').length,sep=raw.includes(',');
