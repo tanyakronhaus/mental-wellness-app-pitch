@@ -38,7 +38,7 @@ const REFS={
  25:['Catalogna, M., Saporta, N., Nathansohn-Levi, B., Tamir, T., Shahaf, A., Molcho, S., Erlich, S., Shelly, S., & Amedi, A. (2025). Mobile application leads to psychological improvement and correlated neuroimmune function change in subjective cognitive decline. npj Digital Medicine, 8, 359.',D+'10.1038/s41746-025-01765-1'],
  26:['Amedi, A., Shelly, S., Saporta, N., & Catalogna, M. (2024). Perceptual learning and neural correlates of virtual navigation in subjective cognitive decline: A pilot study. iScience, 27(12), 111411.',D+'10.1016/j.isci.2024.111411'],
  27:['Schwartz, N., Snir, A., & Amedi, A. (2025). Feeling the music: Exploring emotional effects of auditory-tactile musical experiences. Frontiers in Virtual Reality, 6, 1592652.',D+'10.3389/frvir.2025.1592652'],
- 28:['Catalogna, M., & Amedi, A. (2026). Digital neuroplasticity modulation of the brain–immune axis: Translational strategies for neurodegenerative, psychiatric, and aging-related conditions. Neural Regeneration Research.',D+'10.4103/NRR.NRR-D-25-01728']
+ 28:['Catalogna, M., & Amedi, A. (2026). Digital neuroplasticity modulation of the brain–immune axis: Translational strategies for neurodegenerative, psychiatric, and aging-related conditions. Neural Regeneration Research, 21(10), 4914–4915.',D+'10.4103/NRR.NRR-D-25-01728']
 };
 const linkLabel=(u,l)=>l||('doi:'+u.replace(D,''));
 const refList=$('#refs-l');
