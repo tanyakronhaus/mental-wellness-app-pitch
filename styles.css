@@ -943,3 +943,16 @@ body.portrait .fc{min-height:0}
 body.portrait .parts,body.portrait .fcs{grid-template-columns:1fr 1fr}
 @media (max-width:599px){body.portrait .parts,body.portrait .fcs{grid-template-columns:1fr}}
 body.portrait .pt3{min-height:0}
+
+/* phone width: step lists become a horizontal strip above the phone mock-up */
+body.portrait #demo .steps,body.portrait #onboard .steps{flex-direction:row;overflow-x:auto;gap:8px;padding:4px 2px 12px;margin:0 -4px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+body.portrait #demo .steps::-webkit-scrollbar,body.portrait #onboard .steps::-webkit-scrollbar{display:none}
+body.portrait #demo .stp,body.portrait #onboard .stp{flex:none;grid-template-columns:auto auto;gap:8px;padding:7px 12px 7px 14px;border-radius:999px;border-color:var(--line);background:rgba(255,255,255,.8);scroll-snap-align:center}
+body.portrait #demo .stp small,body.portrait #onboard .stp small{display:none}
+body.portrait #demo .stp .nm,body.portrait #onboard .stp .nm{padding:3px 9px;border-radius:999px;min-width:30px}
+body.portrait #demo .stp b,body.portrait #onboard .stp b{font-size:14.5px;white-space:nowrap}
+body.portrait #demo .cols,body.portrait #onboard .cols{gap:16px}
+body.portrait #demo .phone,body.portrait #onboard .phone{zoom:.94}
+body.portrait #demo .cols,body.portrait #onboard .cols{align-items:stretch!important}
+body.portrait #demo .steps,body.portrait #onboard .steps{max-width:100%;min-width:0}
+body.portrait #demo .phone,body.portrait #onboard .phone{align-self:center}

@@ -374,8 +374,9 @@ if($('#pals')){$('#pals').addEventListener('click',e=>{const b=e.target.closest(
 
 /* ───────── Onboarding phone ───────── */
 const ob={o:0,prof:{feel:[],channel:[]},palette:'A'};
+function chipIntoView(list,el){if(!portrait||!list||!el)return;const l=list.getBoundingClientRect(),r=el.getBoundingClientRect();list.scrollBy({left:(r.left+r.width/2)-(l.left+l.width/2),behavior:reduce?'auto':'smooth'});}
 function obShow(o){ob.o=o;$$('#obphone .v').forEach(v=>v.classList.toggle('sel',+v.dataset.o===o));
-  $$('#obsteps .stp').forEach(s=>{const k=+s.dataset.o;s.classList.toggle('sel',k===o);s.classList.toggle('done',k<o);});obRec();}
+  $$('#obsteps .stp').forEach(s=>{const k=+s.dataset.o;s.classList.toggle('sel',k===o);s.classList.toggle('done',k<o);});chipIntoView($('#obsteps'),$('#obsteps .stp.sel'));obRec();}
 function obRec(){const r=[['consent_terms',$('#ob-c1').checked],['consent_research',$('#ob-c2').checked],['profile.feel',ob.prof.feel],['profile.channel',ob.prof.channel],['palette',ob.palette],['reminder_time',ob.o>=5?'20:00':null]];
   $('#obrec').innerHTML=r.map(([k,v])=>'<div><span class="k">'+k+'</span>: '+(v===null||(Array.isArray(v)&&!v.length)?'<span class="z">—</span>':typeof v==='boolean'?'<span class="n">'+v+'</span>':'<span class="s">'+esc(JSON.stringify(v))+'</span>')+'</div>').join('');}
 if($('#obphone')){obRec();
@@ -398,7 +399,7 @@ function renderRec(){const el=$('#drec');if(!el)return;
     return '<div'+(demo.changed&&demo.changed.has(k)?' class="new"':'')+'>&nbsp;&nbsp;<span class="k">'+k+'</span>: '+val+',</div>';}).join('')+'}';
   demo.changed=new Set();}
 function dShow(k){demo.k=k;$$('#dphone .v').forEach(v=>v.classList.toggle('sel',+v.dataset.k===k));
-  const sk=$$('#demosteps .stp');let best=null;sk.forEach(s=>{if(+s.dataset.k<=k)best=s;});sk.forEach(s=>{s.classList.toggle('sel',s===best);s.classList.toggle('done',+s.dataset.k<+(best?best.dataset.k:0));});
+  const sk=$$('#demosteps .stp');let best=null;sk.forEach(s=>{if(+s.dataset.k<=k)best=s;});sk.forEach(s=>{s.classList.toggle('sel',s===best);s.classList.toggle('done',+s.dataset.k<+(best?best.dataset.k:0));});chipIntoView($('#demosteps'),best);
   $('#dphone .scr').classList.toggle('blank',k===6);
   renderRec();}
 function levelFor(s){const p=s<=4?[1/3,1/3,1/3]:s<=7?[.45,.35,.2]:[.6,.3,.1];const r=Math.random();return r<p[0]?1:r<p[0]+p[1]?2:3;}
