@@ -958,3 +958,7 @@ body.portrait #demo .phone,body.portrait #onboard .phone{zoom:.94}
 body.portrait #demo .cols,body.portrait #onboard .cols{align-items:stretch!important}
 body.portrait #demo .steps,body.portrait #onboard .steps{max-width:100%;min-width:0}
 body.portrait #demo .phone,body.portrait #onboard .phone{align-self:center}
+
+/* top bar name */
+.nav .t .nm-brand{font-weight:600;background:var(--tt);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shim 7s ease-in-out infinite alternate}
+.nav .t .nm-dash{color:var(--muted);font-weight:400}
