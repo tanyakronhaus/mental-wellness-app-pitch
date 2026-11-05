@@ -962,3 +962,17 @@ body.portrait #demo .phone,body.portrait #onboard .phone{align-self:center}
 /* top bar name */
 .nav .t .nm-brand{font-weight:600;background:var(--tt);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shim 7s ease-in-out infinite alternate}
 .nav .t .nm-dash{color:var(--muted);font-weight:400}
+/* phone width: tables become stacked cards; chips wrap as rounded tags */
+body.portrait .tbl thead{display:none}
+body.portrait .tbl,body.portrait .tbl tbody,body.portrait .tbl tr,body.portrait .tbl td{display:block;width:auto!important}
+body.portrait .tbl tr{padding:12px 0;border-bottom:1px solid var(--line)}
+body.portrait .tbl tr:last-child{border-bottom:0}
+body.portrait .tbl td{border:0;padding:3px 2px}
+body.portrait .tbl td:first-child{font-family:var(--f-d);font-size:17px;padding-bottom:6px}
+body.portrait .tbl td:nth-child(3){font-size:14px;color:var(--muted);padding-top:6px}
+body.portrait .chips>span{border-radius:14px;white-space:normal}
+/* phone width: secondary-screen mock-ups one per row, tablets two */
+body.portrait .minis{grid-template-columns:1fr;gap:28px}
+@media (min-width:600px){body.portrait .minis{grid-template-columns:1fr 1fr}}
+body.portrait .mph{max-width:260px}
+body.portrait .mph{aspect-ratio:auto}body.portrait .mph .in{min-height:380px}
