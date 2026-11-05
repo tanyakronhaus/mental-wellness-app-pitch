@@ -253,9 +253,9 @@ function anim(type,ctx,t,W2,H2,st){
       c.w.forEach((w,j)=>{const hide=r()<.5;if(!w)return;if(lvl===2)return;ctx.globalAlpha=lvl===1&&hide?.12:1;ctx.beginPath();ctx.moveTo(segs[j][0],segs[j][1]);ctx.lineTo(segs[j][2],segs[j][3]);ctx.stroke();});});
     ctx.globalAlpha=1;
     const [gx,gy]=cxy(n*n-1);const g=ctx.createRadialGradient(gx,gy,0,gx,gy,cs*.6);g.addColorStop(0,'#fbfdfc');g.addColorStop(.4,'#cfc4fb');g.addColorStop(1,'rgba(143,124,232,0)');ctx.fillStyle=g;ctx.beginPath();ctx.arc(gx,gy,cs*.6,0,7);ctx.fill();
-    if(lvl===2){for(let k=0;k<3;k++){const rr=((t*1.4+k/3)%1)*cs*1.4;ctx.strokeStyle='rgba(191,221,216,'+(1-rr/(cs*1.4))*.8+')';ctx.lineWidth=S*.006;ctx.beginPath();ctx.arc(px,py,rr,0,7);ctx.stroke();}}
+    if(lvl===2){for(let k=0;k<3;k++){const rr=((t*1.4+k/3)%1)*cs*1.4;ctx.strokeStyle='rgba(207,196,251,'+(1-rr/(cs*1.4))*.8+')';ctx.lineWidth=S*.006;ctx.beginPath();ctx.arc(px,py,rr,0,7);ctx.stroke();}}
     ctx.fillStyle=ST.blue;ctx.beginPath();ctx.arc(px,py,cs*.22,0,7);ctx.fill();
-    ctx.fillStyle=lvl===2?'#e8e4fb':'#6c6889';ctx.font=(S*.045)+'px Heebo';ctx.textAlign='center';ctx.fillText(['רמה 1 · מבוך גלוי','רמה 2 · חצי מוסתר','רמה 3 · צליל בלבד'][lvl],S/2,S*.05);
+    ctx.fillStyle=lvl===2?'#e8e4fb':'#6c6889';ctx.font=(S*.045)+'px Heebo';ctx.textAlign='center';ctx.fillText(['רמה 1 · מבוך גלוי','רמה 2 · חצי מוסתר','רמה 3 · פעימות ורטט בלבד'][lvl],S/2,S*.05);
   }
   else if(type==='sound'){ctx.fillStyle='#ffd5e6';ctx.fillRect(0,0,W2,H2);const cx=S/2,cy=S/2;
     ctx.fillStyle='#2F3E34';ctx.beginPath();ctx.arc(cx,cy,S*.025,0,7);ctx.fill();
@@ -319,7 +319,7 @@ $$('canvas[data-anim]').forEach(c=>ANIMS.push({c,ctx:c.getContext('2d'),type:c.d
 const famCv=$('#famcv');if(famCv)ANIMS.push({c:famCv,ctx:famCv.getContext('2d'),type:'maze',slide:famCv.closest('.slide'),st:{}});
 const introCv=$('#introcv');if(introCv)ANIMS.push({c:introCv,ctx:introCv.getContext('2d'),type:'grid',slide:introCv.closest('.slide'),st:{},cond:()=>demo.k===4});
 const t0=performance.now();
-function loop(now){const t=(now-t0)/1000;
+function loop(now){const t=Math.max(0,(now-t0)/1000);
   ANIMS.forEach(a=>{if(!a.slide.classList.contains('on'))return;if(a.cond&&!a.cond())return;if(portrait){const r=a.c.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;}
     anim(a.type,a.ctx,reduce?2.2:t,a.c.width,a.c.height,a.st);});
   if(demo.task)taskFrame(now);
@@ -327,7 +327,7 @@ function loop(now){const t=(now-t0)/1000;
 
 /* ───────── Families ───────── */
 const FAM=[
- {n:'מבוך עם הסרת ראייה',a:'maze',kv:[['מה עושים','מנווטים במבוך אל יעד; צליל מציין מרחק מקיר'],['ערוץ / תחום','רב-חושי / מרחבי'],['כל הפעלה','מבוך חדש, פרוצדורלי, 6×6 עד 10×10']],lv:['מבוך גלוי, מפה בהתחלה','50% מוסתר','צליל בלבד']},
+ {n:'מבוך עם הסרת ראייה',a:'maze',kv:[['מה עושים','מנווטים במבוך אל יעד בהטיית הטלפון; קצב פעימות או עוצמת רטט מציינים מרחק מקיר'],['ערוץ / תחום','רב-חושי / מרחבי'],['כל הפעלה','מבוך חדש, פרוצדורלי, 6×6 עד 10×10']],lv:['מבוך גלוי, מפה בהתחלה','50% מוסתר','פעימות ורטט בלבד']},
  {n:'איתור צליל נע',a:'sound',kv:[['מה עושים','מסמנים על המסך מאיפה מגיע צליל (אוזניות)'],['ערוץ / תחום','שמיעתי / מרחבי'],['כל הפעלה','מסלולי תנועה אקראיים']],lv:['צליל אחד איטי','שני צלילים','רעש רקע + מהיר']},
  {n:'מוזיקה ברטט',a:'music',kv:[['מה עושים','מאזינים לשיר שבחרו עם רטט מסונכרן, ומקישים כשהקצב משתנה'],['ערוץ / תחום','רב-חושי / קשב'],['כל הפעלה','ניתוח קצב של השיר שנבחר']],lv:['שינויים גסים','עדינים','שני כלים במקביל']},
  {n:'מפה שנעלמת',a:'map',kv:[['מה עושים','רואים פריטים על מפה, המפה נעלמת, ומשחזרים מיקום'],['ערוץ / תחום','חזותי / זיכרון עבודה'],['כל הפעלה','מפה ופריטים אקראיים']],lv:['4 פריטים, 10 שנ׳','7 פריטים, 5 שנ׳','7 פריטים, והמפה מסתובבת']},
