@@ -242,19 +242,29 @@ const MAZE=mazeGen(7,11);
 const MOTS={};
 function anim(type,ctx,t,W2,H2,st){
   const S=W2;ctx.clearRect(0,0,W2,H2);ctx.lineCap='round';ctx.lineJoin='round';
-  if(type==='maze'){const {cells,path,n}=MAZE;const pd=S*.08,cs=(S-2*pd)/n;const lvl=Math.floor(t/5)%3;
+  if(type==='maze'){const {cells,path,n}=MAZE;const mz=S*.7,x0=S*.26,y0=S*.17,cs=mz/n;const lvl=Math.floor(t/5)%3;
     const prog=(t%5)/5;const idx=prog*(path.length-1);const i0=Math.floor(idx),f=idx-i0;
-    const cxy=c=>[pd+(c%n+.5)*cs,pd+(((c/n)|0)+.5)*cs];
+    const cxy=c=>[x0+(c%n+.5)*cs,y0+(((c/n)|0)+.5)*cs];
     const [ax,ay]=cxy(path[i0]),[bx,by]=cxy(path[Math.min(i0+1,path.length-1)]);const px=ax+(bx-ax)*f,py=ay+(by-ay)*f;
     if(lvl===2){ctx.fillStyle='rgba(44,40,73,.82)';ctx.fillRect(0,0,W2,H2);}
     ctx.strokeStyle=ST.grey;ctx.lineWidth=S*.012;
     const r=rng(5);
-    cells.forEach((c,k)=>{const x=pd+(k%n)*cs,y=pd+((k/n)|0)*cs;const segs=[[x,y,x+cs,y],[x+cs,y,x+cs,y+cs],[x,y+cs,x+cs,y+cs],[x,y,x,y+cs]];
+    cells.forEach((c,k)=>{const x=x0+(k%n)*cs,y=y0+((k/n)|0)*cs;const segs=[[x,y,x+cs,y],[x+cs,y,x+cs,y+cs],[x,y+cs,x+cs,y+cs],[x,y,x,y+cs]];
       c.w.forEach((w,j)=>{const hide=r()<.5;if(!w)return;if(lvl===2)return;ctx.globalAlpha=lvl===1&&hide?.12:1;ctx.beginPath();ctx.moveTo(segs[j][0],segs[j][1]);ctx.lineTo(segs[j][2],segs[j][3]);ctx.stroke();});});
     ctx.globalAlpha=1;
     const [gx,gy]=cxy(n*n-1);const g=ctx.createRadialGradient(gx,gy,0,gx,gy,cs*.6);g.addColorStop(0,'#fbfdfc');g.addColorStop(.4,'#cfc4fb');g.addColorStop(1,'rgba(143,124,232,0)');ctx.fillStyle=g;ctx.beginPath();ctx.arc(gx,gy,cs*.6,0,7);ctx.fill();
     if(lvl===2){for(let k=0;k<3;k++){const rr=((t*1.4+k/3)%1)*cs*1.4;ctx.strokeStyle='rgba(207,196,251,'+(1-rr/(cs*1.4))*.8+')';ctx.lineWidth=S*.006;ctx.beginPath();ctx.arc(px,py,rr,0,7);ctx.stroke();}}
     ctx.fillStyle=ST.blue;ctx.beginPath();ctx.arc(px,py,cs*.22,0,7);ctx.fill();
+    /* tilt hint: a phone that leans the way the ball moves */
+    const dx=Math.sign(bx-ax),dy=Math.sign(by-ay);st.tx=(st.tx||0)+(dx-(st.tx||0))*.12;st.ty=(st.ty||0)+(dy-(st.ty||0))*.12;
+    const dark=lvl===2,ink=dark?'#e8e4fb':'#6f5bd6',hx=S*.13,hy=S*.5,pw=S*.11,ph2=S*.19;
+    ctx.save();ctx.fillStyle=dark?'rgba(255,255,255,.08)':'rgba(255,255,255,.75)';ctx.beginPath();ctx.arc(hx,hy,S*.12,0,7);ctx.fill();
+    ctx.translate(hx,hy);ctx.rotate(st.tx*.38);ctx.scale(1,1-.28*Math.abs(st.ty));
+    ctx.fillStyle=dark?'rgba(255,255,255,.12)':'#ffffff';ctx.strokeStyle=ink;ctx.lineWidth=S*.011;rr(ctx,-pw/2,-ph2/2,pw,ph2,pw*.22);ctx.fill();ctx.stroke();
+    ctx.fillStyle=ink;rr(ctx,-pw*.18,-ph2/2+ph2*.07,pw*.36,ph2*.05,ph2*.025);ctx.fill();
+    ctx.fillStyle=ST.blue;ctx.beginPath();ctx.arc(st.tx*pw*.22,st.ty*ph2*.22,pw*.13,0,7);ctx.fill();ctx.restore();
+    const al=S*.05,ay2=hy+S*.17;if(Math.abs(dx)+Math.abs(dy)>0){ctx.save();ctx.translate(hx,ay2);ctx.rotate(Math.atan2(dy,dx));ctx.strokeStyle=ink;ctx.lineWidth=S*.012;ctx.lineCap='round';ctx.beginPath();ctx.moveTo(-al/2,0);ctx.lineTo(al/2,0);ctx.moveTo(al/2-S*.02,-S*.018);ctx.lineTo(al/2,0);ctx.lineTo(al/2-S*.02,S*.018);ctx.stroke();ctx.restore();}
+    if(S>=500){ctx.fillStyle=ink;ctx.font='600 '+(S*.032)+'px Heebo';ctx.textAlign='center';ctx.fillText('הטיית הטלפון',hx,hy-S*.15);}
     ctx.fillStyle=lvl===2?'#e8e4fb':'#6c6889';ctx.font=(S*.045)+'px Heebo';ctx.textAlign='center';ctx.fillText(['רמה 1 · מבוך גלוי','רמה 2 · חצי מוסתר','רמה 3 · פעימות ורטט בלבד'][lvl],S/2,S*.05);
   }
   else if(type==='sound'){ctx.fillStyle='#ffd5e6';ctx.fillRect(0,0,W2,H2);const cx=S/2,cy=S/2;
